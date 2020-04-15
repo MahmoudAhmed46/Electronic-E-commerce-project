@@ -1,0 +1,300 @@
+body{
+    margin:0;
+    padding:0;
+}
+#container{
+    margin: 0 auto;
+    width: 1349px;
+    font-family: tahoma;
+}
+#header
+{
+    width: 100%;
+}
+#subheader{
+    /*width: 95%;*/
+    margin:0 auto;
+    width: 100%;
+    height: 35px;
+    background: #cd3301;
+    color: #fff;
+}
+
+#subheader p{
+    float: left;
+    font-family: 'Chicle' , cursive;
+    height: 35px;
+    margin: 0;
+    text-align: center;
+}
+#subheader a{
+    float: right;
+    line-height: 30px;
+    color: #fff;
+    text-decoration: none;
+    margin:0;
+    margin-left: 30px;
+    font-family: 'Chicle',cursive;
+    text-align: center;
+    height: 35px;
+}
+#subheader a:hover{
+    color:red;
+}
+
+#main-header{
+    width: 100%;
+    height: 100px;
+    background: #08A4F7;
+    float: left;
+}
+#logo{
+    width: 250px;
+    float: left;
+}
+#fPart{
+    color: black;
+    font-size: 45px;
+    font-weight: bold;
+    margin-left: 15px;
+    font-family: 'Chicle',cursive;
+    margin-top: 0;
+
+}
+#sPart{
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 15px;
+    font-family: 'Chicle',cursive;
+}
+
+#search{
+    width: 650px;
+    float: left;
+    padding: 20px;
+    margin-left: 50px;
+}
+#search-input{
+    width: 650px;
+    height: 50px;
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    float: left;
+    padding-left: 15px;
+}
+#search-submit{
+    width: 100px;
+    height: 53px;
+    border-radius:0px 10px 10px 0px;
+    border: none;
+    color: #fff;
+    background: #cd3301;
+    margin-left: -100.5px;
+
+}
+
+#search-submit:hover
+{
+    cursor: pointer;
+    background-color: blue;
+}
+#all-cart{
+    position: relative;
+    width: 225px;
+    float: right;
+    margin-top:20px;
+    background: #fff;
+    border: none;
+    border-radius: 25px;
+    margin-right: 50px;
+}
+#cart-text{
+    float: left;
+    margin-left: 40px;
+    font-size: 45px;
+    color: brown;
+    margin-top: 2px;
+}
+#all-cart img{
+    width:60px;
+    height:60px;
+    margin-left: 20px;
+}
+#num{
+    position: absolute;
+    font-family: Montserrat, sans-serif;
+    color: rgb(62, 20, 139);
+    font-weight: bold;
+    top: 0px;
+    left: 180px;
+}
+/*Navigation*/
+#navigation
+{
+    width: 100%;
+    height: 35px;
+    background:#08A4F7;
+    float: left;
+    margin-bottom: 20px;
+}
+
+nav
+{
+    margin-left: 290px;
+    width: 1010;
+    /*margin:0 auto;*/
+}
+
+nav a
+{
+    margin-left: 35px;
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover
+{
+    color:#000;
+    transition: all .7s ease;
+}
+#boody
+{
+    margin-top: 150px;
+    width: 100%;
+    background-color: cornflowerblue;
+}
+#shopping-cart
+{
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+/*products*/
+.prods{
+    float: left;
+    width:579px;
+    background-color: white;
+    margin-right: 20px;
+}
+.prod-box{
+    margin-top: 40px;
+    height: 180px;
+    border-bottom: gray solid 1px;
+}
+.prod-box img{
+    height: 150px;
+    width: 100px;
+    float: left;
+    margin-top: 0;
+    margin-right: 20px;
+}
+.prod-box p
+{
+    width: 350px;
+    margin: 0;
+    font-size: 30px;
+    margin:0;
+    padding-top: 20px;
+    float: left;
+}
+.prod-box button
+{
+    float:right;
+    margin-top: 18px;
+    border: 0;
+    background-color: white;
+    font-size: 20px;
+}
+.total-price
+{
+    margin-top: 80px;
+    border: gray solid 1px;
+    margin-left:500px;
+    width: 60px;
+    padding: 10px;
+}
+.total-price p{
+    margin: 0;
+}
+/*Personal information*/
+.personal-info{
+    float: left;
+    background-color: #00bcd4;
+    width:350px;
+    height: 607px;
+    border-radius: 10px;
+    margin-left: 30px;
+}
+fieldset
+{
+    color:white;
+    margin:auto;
+    border: 0;
+    margin-top: 30px;
+    padding-top: 40px;
+    width: 310px;
+}
+fieldset label{
+    display: block;
+    color:#222831;
+    width: 100%;
+    margin-top:15px;
+    margin-bottom: 3px;
+}
+fieldset input[type="text"],input[type="email"]{
+    border: 0;
+    border-bottom: 1px white solid;
+    background-color: #b2ebf2;
+    width: 100%;
+    color:black;
+    font-weight: bold;
+    height: 30px;
+}
+fieldset input[type="email"]{
+    margin-bottom: 60px;
+}
+fieldset select
+{
+    background-color: #b2ebf2;
+    width: 100%;
+    color:black;
+    font-size: bold;
+    border:0;
+    margin-top:10px;
+    border-bottom: 1px white solid;
+    padding-bottom: 3px;
+}
+fieldset .selects
+{
+    margin-bottom: 20px;
+    width: 100%;
+    margin:auto;
+    margin-left: 77px;
+}
+fieldset .selects div
+{
+    width: 50%;
+}
+/*bank account*/
+.card-info
+{
+    float: left;
+    background-color: #dd2c00;
+    width:350px;
+    height: 607px;
+    border-radius: 10px;
+    margin-left: 20px;
+}
+.card-info input[type="submit"]
+{
+    background-color: teal;
+    color:white;
+    width: 100%;
+    height: 50px;
+    border: 0;
+    margin-top: 250px;
+    border-radius: 5px;
+}
+

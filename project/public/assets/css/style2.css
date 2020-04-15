@@ -1,0 +1,45 @@
+.div-report{
+    margin-left: 70px;
+    margin-top: 40px;
+    height: 150px;
+    border-radius: 20px;
+    background-color:#007bff;
+}
+.div1-mar{
+    margin: 10px 20px 10px;
+}
+.div-report:hover{
+    background-color: #1b1e21;
+}
+.div-report-text{
+    padding-top: 20px;
+}
+.div-order-table{
+    margin: 10px 20px 10px;
+}
+.order-title{
+    font-family: cursive;
+    color:darkblue;
+}
+.content{
+    width: 100%;
+    background: #F3F8FB;
+}
+.view-product-title{
+    font-family: cursive;
+    color:darkblue;;
+}
+.tbl-head-txt{
+    font-size: 18px;
+}
+.mrg{
+    font-size: 18px;
+    margin-left: 840px;
+}
+.lbl-form{
+    font-size: 18px;
+    color: black;
+}
+.inp{
+    width: 50%;
+}

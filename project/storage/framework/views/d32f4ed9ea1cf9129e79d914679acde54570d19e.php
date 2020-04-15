@@ -1,0 +1,1 @@
+<?php  echo 'the Hanitsation: '.$ind.'<br>'; echo $str?><?php /**PATH F:\laravel\section5\resources\views/stars.blade.php ENDPATH**/ ?>
