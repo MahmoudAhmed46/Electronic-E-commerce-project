@@ -297,4 +297,47 @@ fieldset .selects div
     margin-top: 250px;
     border-radius: 5px;
 }
+#footer{
+    width: 100%;
+    height: auto;
+    background:black;
+    float: left;
+    color: #f1ebeb;
+    margin: 10px auto;
+    padding: 20px;
+}
+
+#about{
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+#about p{
+    font-weight: bold;
+    padding-bottom: 0px;
+}
+#about span{
+    display: block;
+}
+
+#contact{
+    width: 50%;
+    float: left;
+    text-align: center;
+
+}
+
+#contact ul li{
+    list-style: none;
+}
+
+#contact ul li a{
+    text-decoration: none;
+    color: #f1ebeb;
+}
+
+#contact ul li a:hover{
+    text-decoration: underline;
+    color: blueviolet;
+}
 
