@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/admin/dashbord', function () {
     return view('admin.dashboard');
 });
 Route::get('/admin/add-banners', function () {
@@ -45,7 +45,7 @@ Route::get('/admin/add-images', function () {
     return view('admin.products.add-images');
 });
 
-Route::get('/user', function () {
+Route::get('/', function () {
     return view('home');
 });
 Route::get('/history', function () {
@@ -54,3 +54,7 @@ Route::get('/history', function () {
 Route::get('/cart', function () {
     return view('cart');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
