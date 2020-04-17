@@ -20,7 +20,6 @@ class CreateUsersTable extends Migration
             $table->string('address');
             $table->string('state');
             $table->string('city');
-            $table->string('country');
             $table->string('pincode');
             $table->timestamp('email_verified_at')->nullable();
             $table->boolean('is_Admin')->default(false);
