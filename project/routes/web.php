@@ -54,6 +54,9 @@ Route::get('/history', function () {
 Route::get('/cart', function () {
     return view('cart');
 });
+Route::get('/p', function () {
+    return view('profile');
+});
 
 Auth::routes();
 

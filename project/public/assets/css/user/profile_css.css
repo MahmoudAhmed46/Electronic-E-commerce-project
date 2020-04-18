@@ -1,6 +1,7 @@
 body{
     margin:0;
     padding:0;
+    background-color:#77d8d8;
 }
 #container{
     margin: 0 auto;
@@ -141,7 +142,7 @@ body{
     height: 35px;
     background:#08A4F7;
     float: left;
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
 }
 
 nav
@@ -163,151 +164,77 @@ nav a:hover
     color:#000;
     transition: all .7s ease;
 }
+/*body*/
 #boody
 {
-    margin-top: 150px;
+    margin-top: 130px;
     width: 100%;
-    background-color: cornflowerblue;
+    background-color:#77d8d8;
 }
-#shopping-cart
+.pic
 {
-    font-weight: bold;
-    padding-left: 20px;
+float: left;
+width:300px;
 }
-
-/*products*/
-.prods{
-    float: left;
-    width:579px;
-    background-color: white;
-    margin-right: 20px;
-}
-.prod-box{
-    margin-top: 40px;
-    height: 180px;
-    border-bottom: gray solid 1px;
-}
-.prod-box img{
-    height: 150px;
-    width: 100px;
-    float: left;
-    margin-top: 0;
-    margin-right: 20px;
-}
-.prod-box p
-{
-    width: 350px;
-    margin: 0;
-    font-size: 30px;
+.pic p{
     margin:0;
-    padding-top: 20px;
-    float: left;
-}
-.prod-box button
-{
-    float:right;
-    margin-top: 18px;
-    border: 0;
-    background-color: white;
-    font-size: 20px;
-}
-.total-price
-{
-    margin-top: 80px;
-    border: gray solid 1px;
-    margin-left:500px;
-    width: 60px;
-    padding: 10px;
-}
-.total-price p{
-    margin: 0;
-}
-/*Personal information*/
-.personal-info{
-    float: left;
-    background-color: #00bcd4;
-    width:350px;
-    height: 607px;
-    border-radius: 10px;
-    margin-left: 30px;
-    margin-bottom: 20px;
-}
-fieldset
-{
-    color:white;
-    margin:auto;
-    border: 0;
-    margin-top: 30px;
-    padding-top: 40px;
-    width: 310px;
-}
-fieldset label{
-    display: block;
-    color:#222831;
-    width: 100%;
-    margin-top:15px;
-    margin-bottom: 3px;
-}
-fieldset input[type="text"],input[type="email"]{
-    border: 0;
-    border-bottom: 1px white solid;
-    background-color: #b2ebf2;
-    width: 100%;
-    color:black;
-    font-weight: bold;
+    background-color: #0779e4;
     height: 30px;
-}
-fieldset input[type="email"]{
-    margin-bottom: 60px;
-}
-fieldset select
-{
-    background-color: #b2ebf2;
-    width: 100%;
-    color:black;
-    font-size: bold;
-    border:0;
-    margin-top:10px;
-    border-bottom: 1px white solid;
-    padding-bottom: 3px;
-}
-fieldset .selects
-{
-    margin-bottom: 20px;
-    width: 100%;
-    margin:auto;
-    margin-left: 77px;
-}
-fieldset .selects div
-{
-    width: 50%;
-}
-/*bank account*/
-.card-info
-{
-    float: left;
-    background-color: #dd2c00;
-    width:350px;
-    height: 607px;
-    border-radius: 10px;
-    margin-left: 20px;
-}
-.card-info input[type="submit"]
-{
-    background-color: teal;
-    color:white;
-    width: 100%;
-    height: 50px;
-    border: 0;
-    margin-top: 250px;
+    width: 300px;
+    text-align: center;
+    padding-top:20px;
     border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    margin-top:10px;
 }
+#boody img
+{
+    margin-top: 20px;
+    height: 350px;
+    width: 300px;
+    border:1px black solid;
+}
+.info
+{
+    width:1049px;
+    height: auto;
+    background-color:#77d8d8;
+    margin-left: 300px;
+}
+.info fieldset{
+    width: 500px;
+    text-align: center;
+    padding-top: 50px;
+    padding-left: 0;
+    border: 0;
+    margin:auto;
+}
+.info input{
+    width:400px;
+    display: inline-block;
+    margin-bottom: 30px;
+    background-color: #eff3c6;
+    height: 40px;
+    padding-left: 20px;
+    font-weight: bold;
+    border: 0;
+}
+.info p
+{
+    width: 50px;
+    margin:0;
+    font-weight: bold;
+    display: inline;
+}
+/*footer*/
 #footer{
     width: 100%;
     height: auto;
     background:black;
     float: left;
     color: #f1ebeb;
+    margin-top: auto;
 }
 
 #about{
@@ -343,4 +270,3 @@ fieldset .selects div
     text-decoration: underline;
     color: blueviolet;
 }
-
