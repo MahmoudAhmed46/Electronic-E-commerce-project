@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/admin/dashbord', function () {
+Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 });
 Route::get('/admin/add-banners', function () {
