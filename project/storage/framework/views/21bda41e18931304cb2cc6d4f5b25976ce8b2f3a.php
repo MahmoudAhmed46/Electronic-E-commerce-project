@@ -4,7 +4,7 @@
 <head>
     <meta charset="urf-8">
     <title>History</title>
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/user/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/user/style.css')); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
@@ -32,19 +32,19 @@
             <!--User Menu-->
             <div id="all-cart">
                 <span id="cart-text">Cart</span>
-                <a href="{{url('/cart')}}"><img src="{{asset('assets/images/cart-logo.png')}}"></a>
+                <a href="<?php echo e(url('/cart')); ?>"><img src="<?php echo e(asset('assets/images/cart-logo.png')); ?>"></a>
                 <span id="num">0</span>
             </div>
             <!--Navigation-->
             <div id="navigation">
                 <nav id="mainav">
-                    <a href="{{url('/')}}">Home</a>
+                    <a href="<?php echo e(asset('/user')); ?>">Home</a>
                     <a href="#">New arrivals</a>
                     <a href="#offers">Deals</a>
                     <a href="#category">Electronics</a>
                     <a href="#category">Accessroies</a>
                     <a href="#products">Products</a>
-                    <a href="{{url('/history')}}">History</a>
+                    <a href="<?php echo e(url('/history')); ?>">History</a>
                 </nav>
             </div>
         </div>
@@ -59,7 +59,7 @@
             <div class="prod-container">
 
                 <div class="prod-box">
-                    <img src="{{asset('assets/images/lenovo-ideapad.jpg')}}" alt="lenovo ideapad">
+                    <img src="<?php echo e(asset('assets/images/lenovo-ideapad.jpg')); ?>" alt="lenovo ideapad">
                     <div class="prod-trans">
                         <div class="prod-feature">
                             <p>lenovo ideapad</p>
@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="prod-box">
-                    <img src="{{asset('assets/images/smart-washing.jpg')}}" alt="samsung smart washing machine">
+                    <img src="<?php echo e(asset('assets/images/smart-washing.jpg')); ?>" alt="samsung smart washing machine">
                     <div class="prod-trans">
                         <div class="prod-feature">
                             <p>samsung smart washing machine</p>
@@ -84,7 +84,7 @@
                     </div>
                 </div>
                 <div class="prod-box">
-                    <img src="{{asset('assets/images/toshiba-vacuum-cleaner.jpg')}}" alt="toshiba vacuum cleaner">
+                    <img src="<?php echo e(asset('assets/images/toshiba-vacuum-cleaner.jpg')); ?>" alt="toshiba vacuum cleaner">
                     <div class="prod-trans">
                         <div class="prod-feature">
                             <p>toshiba vacuum cleaner</p>
@@ -96,7 +96,7 @@
                     </div>
                 </div>
                 <div class="prod-box">
-                    <img src="{{asset('assets/images/samsung-lcd-screen.jpg')}}" alt="samsung lcd screen">
+                    <img src="<?php echo e(asset('assets/images/samsung-lcd-screen.jpg')); ?>" alt="samsung lcd screen">
                     <div class="prod-trans">
                         <div class="prod-feature">
                             <p>Samsung LCD Screen</p>
@@ -109,7 +109,7 @@
                 </div>
 
                 <div class="prod-box">
-                    <img src="{{asset('assets/images/Huawei-earphones.jpg')}}" alt="Huawei-earphones">
+                    <img src="<?php echo e(asset('assets/images/Huawei-earphones.jpg')); ?>" alt="Huawei-earphones">
                     <div class="prod-trans">
                         <div class="prod-feature">
                             <p>Huawei Earphones</p>
@@ -121,7 +121,7 @@
                     </div>
                 </div>
                 <div class="prod-box">
-                    <img src="{{asset('assets/images/Huawei-Nova-7i_1.jpg')}}" alt="Huawei Nova 7i">
+                    <img src="<?php echo e(asset('assets/images/Huawei-Nova-7i_1.jpg')); ?>" alt="Huawei Nova 7i">
                     <div class="prod-trans">
                         <div class="prod-feature">
                             <p>Huawei Nova 7i</p>
@@ -164,3 +164,4 @@
 </body>
 
 </html>
+<?php /**PATH F:\FCI\E-Commerce\Electronic-E-commerce-project\project\resources\views/history.blade.php ENDPATH**/ ?>

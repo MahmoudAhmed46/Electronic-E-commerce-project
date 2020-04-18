@@ -1,5 +1,4 @@
-@extends('layouts.adminLayout.master')
-@section('content')
+<?php $__env->startSection('content'); ?>
     <!-- page title area start -->
     <div class="page-title-area">
         <div class="row align-items-center">
@@ -14,7 +13,7 @@
             </div>
             <div class="col-sm-6 clearfix">
                 <div class="user-profile pull-right">
-                    <img class="avatar user-thumb" src="{{asset('assets/images/author/avatar.png')}}" alt="avatar">
+                    <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
                     <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Mahmoud <i class="fa fa-angle-down"></i></h4>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="#">Message</a>
@@ -71,4 +70,5 @@
         </div>
     </div>
     <!--end main content inner -->
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.adminLayout.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\FCI\E-Commerce\Electronic-E-commerce-project\project\resources\views/admin/products/add-products.blade.php ENDPATH**/ ?>

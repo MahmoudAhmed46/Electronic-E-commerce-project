@@ -24,7 +24,7 @@ Route::get('/admin/view-banners', function () {
     return view('admin.banners.view-banners');
 });
 Route::get('/admin/add-category', function () {
-    return view('admin.categories.add-categories');
+    return view('admin.categories.add-category');
 });
 Route::get('/admin/edit-category', function () {
     return view('admin.categories.edit-category');

@@ -27,7 +27,7 @@
                         <div class="nofity-list">
                             <a href="#" class="notify-item">
                                 <div class="notify-thumb">
-                                    <img src="{{asset('assets/images/author/author-img1.jpg')}}" alt="image">
+                                    <img src="assets/images/author/author-img1.jpg" alt="image">
                                 </div>
                                 <div class="notify-text">
                                     <p>Aglae Mayer</p>
@@ -37,7 +37,7 @@
                             </a>
                             <a href="#" class="notify-item">
                                 <div class="notify-thumb">
-                                    <img src="{{asset('assets/images/author/author-img2.jpg')}}" alt="image">
+                                    <img src="assets/images/author/author-img2.jpg" alt="image">
                                 </div>
                                 <div class="notify-text">
                                     <p>Aglae Mayer</p>
@@ -47,7 +47,7 @@
                             </a>
                             <a href="#" class="notify-item">
                                 <div class="notify-thumb">
-                                    <img src="{{asset('assets/images/author/author-img3.jpg')}}" alt="image">
+                                    <img src="assets/images/author/author-img3.jpg" alt="image">
                                 </div>
                                 <div class="notify-text">
                                     <p>Aglae Mayer</p>
@@ -57,7 +57,7 @@
                             </a>
                             <a href="#" class="notify-item">
                                 <div class="notify-thumb">
-                                    <img src="{{asset('assets/images/author/author-img4.jpg')}}" alt="image">
+                                    <img src="assets/images/author/author-img4.jpg" alt="image">
                                 </div>
                                 <div class="notify-text">
                                     <p>Aglae Mayer</p>
@@ -67,7 +67,7 @@
                             </a>
                             <a href="#" class="notify-item">
                                 <div class="notify-thumb">
-                                    <img src="{{asset('assets/images/author/author-img2.jpg')}}" alt="image">
+                                    <img src="assets/images/author/author-img2.jpg" alt="image">
                                 </div>
                                 <div class="notify-text">
                                     <p>Aglae Mayer</p>
@@ -77,7 +77,7 @@
                             </a>
                             <a href="#" class="notify-item">
                                 <div class="notify-thumb">
-                                    <img src="{{asset('assets/images/author/author-img1.jpg')}}" alt="image">
+                                    <img src="assets/images/author/author-img1.jpg" alt="image">
                                 </div>
                                 <div class="notify-text">
                                     <p>Aglae Mayer</p>
@@ -87,7 +87,7 @@
                             </a>
                             <a href="#" class="notify-item">
                                 <div class="notify-thumb">
-                                    <img src="{{asset('assets/images/author/author-img3.jpg')}}" alt="image">
+                                    <img src="assets/images/author/author-img3.jpg" alt="image">
                                 </div>
                                 <div class="notify-text">
                                     <p>Aglae Mayer</p>
@@ -104,4 +104,4 @@
         </div>
     </div>
 </div>
-<!-- header area end -->
+<!-- header area end --><?php /**PATH F:\FCI\E-Commerce\Electronic-E-commerce-project\project\resources\views/layouts/adminLayout/header.blade.php ENDPATH**/ ?>

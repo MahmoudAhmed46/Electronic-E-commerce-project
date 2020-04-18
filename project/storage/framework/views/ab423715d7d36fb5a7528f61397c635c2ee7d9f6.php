@@ -1,5 +1,4 @@
-@extends('layouts.adminLayout.master')
-@section('content')
+<?php $__env->startSection('content'); ?>
     <!-- page title area start -->
     <div class="page-title-area">
         <div class="row align-items-center">
@@ -8,13 +7,13 @@
                     <h4 class="page-title pull-left">Dashboard</h4>
                     <ul class="breadcrumbs pull-left">
                         <li><a href="index.html">Home</a></li>
-                        <li><span>View Categories</span></li>
+                        <li><span>View Banners</span></li>
                     </ul>
                 </div>
             </div>
             <div class="col-sm-6 clearfix">
                 <div class="user-profile pull-right">
-                    <img class="avatar user-thumb" src="{{asset('assets/images/author/avatar.png')}}" alt="avatar">
+                    <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
                     <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Mahmoud <i class="fa fa-angle-down"></i></h4>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="#">Message</a>
@@ -30,7 +29,7 @@
     <!--start main content inner -->
     <div class="col-12">
         <div>
-            <h4 class="view-product-title pl--10 pt--20"># Displaying all availabl Categories</h4>
+            <h4 class="view-product-title pl--10 pt--20"># Displaying all availabl Banners</h4>
             <form action="#">
                 <lable class="float-left mrg">Search</lable>
                 <input type="text" class="float-right" name="search">
@@ -41,21 +40,23 @@
                 <thead class="tbl-head-txt">
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Code</th>
-                    <th>Product Quantity</th>
+                    <th>header</th>
+                    <th>content</th>
+                    <th>Image</th>
+                    <th>Position</th>
                     <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <th>1</th>
-                    <th>Mobile</th>
-                    <th>M001</th>
-                    <th>50</th>
+                    <th>mobile</th>
+                    <th>This is Mobile Phone</th>
+                    <th>1</th>
+                    <th><img src="assets\images\products\mob.jpg" style="width: 150px; height: 100px;"></th>
                     <th>
 
-                        <a href="#" title="Edit Category" type="button" class="btn btn-warning " ><span class="fa fa-pencil"></span></a>
+                        <a href="#" title="Add Attributes" type="button" class="btn btn-warning " ><span class="fa fa-pencil"></span></a>
                         <a href="#" title="Delete Products" type="button" class="btn btn-danger " ><span class="fa fa-trash-o"></span> </a>
 
                     </th>
@@ -63,12 +64,13 @@
                 </tr>
                 <tr>
                     <th>1</th>
-                    <th>Mobile</th>
-                    <th>M001</th>
-                    <th>50</th>
+                    <th>mobile</th>
+                    <th>This is Mobile Phone</th>
+                    <th>1</th>
+                    <th><img src="assets\images\products\mob.jpg" style="width: 150px; height: 100px;"></th>
                     <th>
 
-                        <a href="#" title="Edit Category" type="button" class="btn btn-warning " ><span class="fa fa-pencil"></span></a>
+                        <a href="#" title="Add Attributes" type="button" class="btn btn-warning " ><span class="fa fa-pencil"></span></a>
                         <a href="#" title="Delete Products" type="button" class="btn btn-danger " ><span class="fa fa-trash-o"></span> </a>
 
                     </th>
@@ -76,30 +78,19 @@
                 </tr>
                 <tr>
                     <th>1</th>
-                    <th>Mobile</th>
-                    <th>M001</th>
-                    <th>50</th>
-                    <th>
-
-                        <a href="#" title="Edit Category" type="button" class="btn btn-warning " ><span class="fa fa-pencil"></span></a>
-                        <a href="#" title="Delete Products" type="button" class="btn btn-danger " ><span class="fa fa-trash-o"></span> </a>
-
-                    </th>
-
-                </tr>
-                <tr>
+                    <th>mobile</th>
+                    <th>This is Mobile Phone</th>
                     <th>1</th>
-                    <th>Mobile</th>
-                    <th>M001</th>
-                    <th>50</th>
+                    <th><img src="assets\images\products\mob.jpg" style="width: 150px; height: 100px;"></th>
                     <th>
 
-                        <a href="{{url('admin/edit-category')}}" title="Edit Category" type="button" class="btn btn-warning " ><span class="fa fa-pencil"></span></a>
+                        <a href="#" title="Add Attributes" type="button" class="btn btn-warning " ><span class="fa fa-pencil"></span></a>
                         <a href="#" title="Delete Products" type="button" class="btn btn-danger " ><span class="fa fa-trash-o"></span> </a>
 
                     </th>
 
                 </tr>
+
 
                 </tbody>
             </table>
@@ -107,4 +98,5 @@
         </div>
     </div>
     <!--end main content inner -->
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.adminLayout.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\FCI\E-Commerce\Electronic-E-commerce-project\project\resources\views/admin/banners/view-banners.blade.php ENDPATH**/ ?>
