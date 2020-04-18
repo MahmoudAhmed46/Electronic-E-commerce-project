@@ -39,7 +39,7 @@
             <!--Navigation-->
             <div id="navigation">
                 <nav id="mainav">
-                    <a href="{{asset('/user')}}">Home</a>
+                    <a href="{{url('/')}}">Home</a>
                     <a href="#">New arrivals</a>
                     <a href="#offers">Deals</a>
                     <a href="#category">Electronics</a>
