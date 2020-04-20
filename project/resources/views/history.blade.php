@@ -13,7 +13,7 @@
     <div id="header">
         <div id="subheader">
             <!--<div class="upper-header">-->
-            <p>World fastest online shopping place</p>
+            <p>World fastest electronic online shopping place</p>
 
             <!-- </div>-->
         </div>
