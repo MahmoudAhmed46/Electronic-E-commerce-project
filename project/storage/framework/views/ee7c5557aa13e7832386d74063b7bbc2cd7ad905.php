@@ -19,7 +19,7 @@
         <div id="main-header">
             <!--Logo-->
             <div id="logo">
-                <span id="fPart"><a href="home.html">Electronic</a></span><span id="sPart"><a href="#">Shop</a></span>
+                <span id="fPart"><a href="home.html">Electronic</a></span><span id="sPart"><a href="home.html">Shop</a></span>
             </div>
             <!--Search-->
             <div id="search">
@@ -56,7 +56,7 @@
       <section class="home" id="home">
         <div class="titles">
             <div class="titles-wrap">
-                <h1>Electronic <span> Academy</span></h1>
+                <h1>Electronic <span> Shop</span></h1>
                 <h2><span class="txt-rotate"></span></h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, tempora.</p>
             </div>
@@ -260,7 +260,7 @@
             </ul>
         </div>
         <hr>
-        <p>&copy 2020 Acadmya. All rights reserved.</p>
+        <p>&copy 2020 Electronic Shop. All rights reserved.</p>
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
