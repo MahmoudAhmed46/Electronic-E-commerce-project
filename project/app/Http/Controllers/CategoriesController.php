@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\DB;
 
 class CategoriesController extends Controller
 {
+
+    public function index(){
+        
+    }
+
     public function addCategory(Request $request){
         if($request->isMethod('post')) {
             if(!empty($request['category_description'])){

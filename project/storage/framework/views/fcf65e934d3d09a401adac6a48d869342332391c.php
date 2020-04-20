@@ -4,7 +4,7 @@
 <head>
     <meta charset="urf-8">
     <title>Electronic Shop</title>
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/user/profile_css.css')}}">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/user/profile_css.css')); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -33,19 +33,19 @@
             <!--User Menu-->
             <div id="all-cart">
                 <span id="cart-text">Cart</span>
-                <a href="{{url('/cart')}}"><img src="{{asset('assets/images/cart-logo.png')}}"></a>
+                <a href="<?php echo e(url('/cart')); ?>"><img src="<?php echo e(asset('assets/images/cart-logo.png')); ?>"></a>
                 <span id="num">0</span>
             </div>
             <!--Navigation-->
             <div id="navigation">
                 <nav id="mainav">
-                    <a href="{{asset('/user')}}">Home</a>
+                    <a href="<?php echo e(asset('/user')); ?>">Home</a>
                     <a href="#">New arrivals</a>
                     <a href="#offers">Deals</a>
                     <a href="#category">Electronics</a>
                     <a href="#category">Accessroies</a>
                     <a href="#products">Products</a>
-                    <a href="{{url('/history')}}">History</a>
+                    <a href="<?php echo e(url('/history')); ?>">History</a>
                 </nav>
             </div>
         </div>
@@ -53,7 +53,7 @@
 
     <div id="boody">
         <div  class="pic">
-            <img src="{{asset('assets/images/profile_picture.png')}}">
+            <img src="<?php echo e(asset('assets/images/profile_picture.png')); ?>">
             <p>Full Name</p>
         </div>
         <div class="info">
@@ -98,3 +98,4 @@
 </div>
 </body>
 </html>
+<?php /**PATH E:\4\Second Term\E-Commerce\Laravel\Electronic-E-commerce-project\project\resources\views/profile.blade.php ENDPATH**/ ?>

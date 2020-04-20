@@ -4,7 +4,7 @@
 <head>
     <meta charset="urf-8">
     <title>Electronic Shop</title>
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/user/profile_css.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/user/style.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -50,28 +50,26 @@
             </div>
         </div>
     </div>
-
     <div id="boody">
-        <div  class="pic">
-            <img src="{{asset('assets/images/profile_picture.png')}}">
-            <p>Full Name</p>
-        </div>
-        <div class="info">
-            <form>
-                <fieldset>
-                    <p>Email:</p>
-                    <input type="text" value="example@email.com" readonly>
-                    <p>Country:</p>
-                    <input type="text" value="country-city" readonly>
-                    <p>Mobile:</p>
-                    <input type="text" value="123456789" readonly>
-                    <p>Pincode:</p>
-                    <input type="text" value="12345678989876786" readonly>
-                </fieldset>
-           </form>
+        <div id="products">
+            <div id="heading-block">
+                <i class="fa fa-align-justify" style="font-size:36px;"></i>
+                <span>LCD screen</span>
+            </div>
+            
+            <div class="prod-box">
+                <img src="{{asset('assets/images/samsung-lcd-screen.jpg')}}" alt="samsung lcd screen">
+                <div class="prod-trans">
+                    <div class="prod-feature">
+                        <p>Samsung LCD Screen</p>
+                        <p style="color:#fff;font-weight: bold;">Price : 300$</p>
+                        <input type="button" value="Add to cart">
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-
     <div id="footer">
         <div id="about">
             <h2 style="color: darkred;">About</h2>

@@ -37,6 +37,22 @@ Route::get('/p', function () {
     return view('profile');
 });
 
+Route::get('/labtopscategory',function () {
+    return view('products-in-labtops-category');
+});
+Route::get('/mobilescategory',function () {
+    return view('products-in-mobiles-category');
+});
+Route::get('/lcdscreenscategory',function () {
+    return view('products-in-lcdscreen-category');
+});
+Route::get('/homenessitiescategory',function () {
+    return view('products-in-homenessities-category');
+});
+Route::get('/accessoriescategory',function () {
+    return view('products-in-accessories-category');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -4,7 +4,7 @@
 <head>
     <meta charset="urf-8">
     <title>Electronic Shop</title>
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/user/profile_css.css')}}">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/user/style.css')); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -33,45 +33,43 @@
             <!--User Menu-->
             <div id="all-cart">
                 <span id="cart-text">Cart</span>
-                <a href="{{url('/cart')}}"><img src="{{asset('assets/images/cart-logo.png')}}"></a>
+                <a href="<?php echo e(url('/cart')); ?>"><img src="<?php echo e(asset('assets/images/cart-logo.png')); ?>"></a>
                 <span id="num">0</span>
             </div>
             <!--Navigation-->
             <div id="navigation">
                 <nav id="mainav">
-                    <a href="{{asset('/user')}}">Home</a>
+                    <a href="<?php echo e(asset('/user')); ?>">Home</a>
                     <a href="#">New arrivals</a>
                     <a href="#offers">Deals</a>
                     <a href="#category">Electronics</a>
                     <a href="#category">Accessroies</a>
                     <a href="#products">Products</a>
-                    <a href="{{url('/history')}}">History</a>
+                    <a href="<?php echo e(url('/history')); ?>">History</a>
                 </nav>
             </div>
         </div>
     </div>
-
     <div id="boody">
-        <div  class="pic">
-            <img src="{{asset('assets/images/profile_picture.png')}}">
-            <p>Full Name</p>
-        </div>
-        <div class="info">
-            <form>
-                <fieldset>
-                    <p>Email:</p>
-                    <input type="text" value="example@email.com" readonly>
-                    <p>Country:</p>
-                    <input type="text" value="country-city" readonly>
-                    <p>Mobile:</p>
-                    <input type="text" value="123456789" readonly>
-                    <p>Pincode:</p>
-                    <input type="text" value="12345678989876786" readonly>
-                </fieldset>
-           </form>
+        <div id="products">
+            <div id="heading-block">
+                <i class="fa fa-align-justify" style="font-size:36px;"></i>
+                <span>Mobiles</span>
+            </div>
+            
+            <div class="prod-box">
+                <img src="<?php echo e(asset('assets/images/samsung-lcd-screen.jpg')); ?>" alt="samsung lcd screen">
+                <div class="prod-trans">
+                    <div class="prod-feature">
+                        <p>Samsung LCD Screen</p>
+                        <p style="color:#fff;font-weight: bold;">Price : 300$</p>
+                        <input type="button" value="Add to cart">
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-
     <div id="footer">
         <div id="about">
             <h2 style="color: darkred;">About</h2>
@@ -98,3 +96,4 @@
 </div>
 </body>
 </html>
+<?php /**PATH E:\4\Second Term\E-Commerce\Laravel\Electronic-E-commerce-project\project\resources\views/products-in-lcdscreen-category.blade.php ENDPATH**/ ?>
