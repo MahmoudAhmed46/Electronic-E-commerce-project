@@ -15,11 +15,10 @@ class CreateCountriesTable extends Migration
     {
         Schema::create('countries', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('country_code')->default('');
-            $table->string('country_name')->default('');
+            $table->string('city');
+            $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

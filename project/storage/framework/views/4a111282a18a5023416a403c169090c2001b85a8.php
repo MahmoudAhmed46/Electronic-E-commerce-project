@@ -1,5 +1,4 @@
-@extends('layouts.adminLayout.master')
-@section('content')
+<?php $__env->startSection('content'); ?>
     <!-- page title area start -->
     <div class="page-title-area">
         <div class="row align-items-center">
@@ -14,7 +13,7 @@
             </div>
             <div class="col-sm-6 clearfix">
                 <div class="user-profile pull-right">
-                    <img class="avatar user-thumb" src="{{asset('assets/images/author/avatar.png')}}" alt="avatar">
+                    <img class="avatar user-thumb" src="<?php echo e(asset('assets/images/author/avatar.png')); ?>" alt="avatar">
                     <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Mahmoud <i class="fa fa-angle-down"></i></h4>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="#">Message</a>
@@ -30,16 +29,18 @@
     <!--start main content inner -->
     <div class="col-12">
         <div>
-            @if(Session::has('success_message'))
+            <?php if(Session::has('success_message')): ?>
                 <div class="alert alert-success" id="fadeOutsuccess">
-                    <strong>Success!</strong> {!! session('success_message') !!}
+                    <strong>Success!</strong> <?php echo session('success_message'); ?>
+
                 </div>
-            @endif
-            @if(Session::has('warning_message'))
+            <?php endif; ?>
+            <?php if(Session::has('warning_message')): ?>
                 <div class="alert alert-warning" id="fadeOutwarn">
-                    <strong>Warning!</strong> {!! session('warning_message') !!}
+                    <strong>Warning!</strong> <?php echo session('warning_message'); ?>
+
                 </div>
-            @endif
+            <?php endif; ?>
             <h4 class="view-product-title pl--10 pt--20"># Displaying all availabl Categories</h4>
             <form action="#">
                 <lable class="float-left mrg">Search</lable>
@@ -60,30 +61,32 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($categories as $category)
+                <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
-                    <th>{{$category->id}}</th>
-                    <th>{{$category->name}}</th>
-                    <th>{{$category->code}}</th>
+                    <th><?php echo e($category->id); ?></th>
+                    <th><?php echo e($category->name); ?></th>
+                    <th><?php echo e($category->code); ?></th>
                     <th>
-                        <input type="checkbox" id="cstatus" rel="{{$category->id}}" data-toggle="toggle"
-                        @if($category->status==1) checked @endif>
+                        <input type="checkbox" id="cstatus" rel="<?php echo e($category->id); ?>" data-toggle="toggle"
+                        <?php if($category->status==1): ?> checked <?php endif; ?>>
                     </th>
-                    <th>{{$category->description}}</th>
-                    <th>{{$category->pieces}}</th>
+                    <th><?php echo e($category->description); ?></th>
+                    <th><?php echo e($category->pieces); ?></th>
                     <th>
 
-                        <a href="{{url('/admin/edit-category/'.$category->id)}}" title="Edit Category" type="button" class="btn btn-warning " ><span class="fa fa-pencil"></span></a>
-                        <a href="{{url('/admin/delete-category/'.$category->id)}}" title="Delete Products" type="button" class="btn btn-danger " ><span class="fa fa-trash-o"></span> </a>
+                        <a href="<?php echo e(url('/admin/edit-category/'.$category->id)); ?>" title="Edit Category" type="button" class="btn btn-warning " ><span class="fa fa-pencil"></span></a>
+                        <a href="<?php echo e(url('/admin/delete-category/'.$category->id)); ?>" title="Delete Products" type="button" class="btn btn-danger " ><span class="fa fa-trash-o"></span> </a>
 
                     </th>
 
                 </tr>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
             </table>
 
         </div>
     </div>
     <!--end main content inner -->
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.adminLayout.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Mahmoud\Desktop\the project\Electronic-E-commerce-project\project\resources\views/admin/categories/view-category.blade.php ENDPATH**/ ?>

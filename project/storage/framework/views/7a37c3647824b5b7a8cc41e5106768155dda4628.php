@@ -1,5 +1,4 @@
-@extends('layouts.adminLayout.master')
-@section('content')
+<?php $__env->startSection('content'); ?>
     <!-- page title area start -->
     <div class="page-title-area">
         <div class="row align-items-center">
@@ -17,7 +16,7 @@
             </div>
             <div class="col-sm-6 clearfix">
                 <div class="user-profile pull-right">
-                    <img class="avatar user-thumb" src="{{asset('assets/images/author/avatar.png')}}" alt="avatar">
+                    <img class="avatar user-thumb" src="<?php echo e(asset('assets/images/author/avatar.png')); ?>" alt="avatar">
                     <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Mahmoud <i class="fa fa-angle-down"></i></h4>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="#">Message</a>
@@ -33,27 +32,29 @@
     <!--start main content inner -->
     <div class="col-12">
         <div>
-            @if(Session::has('success_message'))
+            <?php if(Session::has('success_message')): ?>
                 <div class="alert alert-success" id="fadeOutsuccess">
-                    <strong>Success!</strong> {!! session('success_message') !!}
+                    <strong>Success!</strong> <?php echo session('success_message'); ?>
+
                 </div>
-            @endif
-            @if(Session::has('danger_message'))
-                <div class="alert alert-danger" id="fadeOutwarn">
-                    <strong>Warning!</strong> {!! session('danger_message') !!}
+            <?php endif; ?>
+            <?php if(Session::has('danger_message')): ?>
+                <div class="alert alert-warning" id="fadeOutwarn">
+                    <strong>Warning!</strong> <?php echo session('danger_message'); ?>
+
                 </div>
-            @endif
+            <?php endif; ?>
             <h4 class="view-product-title pl--10 pt--20"># Add New Product Images
             </h4>
         </div>
         <div class="container mt-4 ml-5">
-            <form action="{{url('/admin/add-images/'.$products->id)}}" method="post" enctype="multipart/form-data">
-                @csrf
+            <form action="<?php echo e(url('/admin/add-images/'.$products->id)); ?>" method="post" enctype="multipart/form-data">
+                <?php echo csrf_field(); ?>
                 <div class="form-group">
-                    <label>Product Name: </label>  <span style="color: darkblue;font-size: large">{{$products->name}}</span>
+                    <label>Product Name: </label>  <span style="color: darkblue;font-size: large"><?php echo e($products->name); ?></span>
                 </div>
                 <div class="form-group">
-                    <label>Product code: </label>  <span style="color: darkblue;font-size: large">{{$products->code}}</span>
+                    <label>Product code: </label>  <span style="color: darkblue;font-size: large"><?php echo e($products->code); ?></span>
                 </div>
 
                 <div class="form-group">
@@ -72,7 +73,7 @@
             </h4>
         </div>
         <div class="container mt-4 ml-5">
-            <form action="{{url('/admin/add-images/'.$products->id)}}" method="post">
+            <form action="<?php echo e(url('/admin/add-images/'.$products->id)); ?>" method="post">
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-hover mr-3">
 
@@ -85,19 +86,19 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($imgDetails as $imgDetail)
+                        <?php $__currentLoopData = $imgDetails; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $imgDetail): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                            <td>{{$imgDetail->id}}</td>
-                            <td>{{$imgDetail->product_id}}</td>
-                            <td><img src="{{asset('/uploads/productsImages/' .$imgDetail->image)}}" style="width: 150px; height: 100px;"></td>
+                            <td><?php echo e($imgDetail->id); ?></td>
+                            <td><?php echo e($imgDetail->product_id); ?></td>
+                            <td><img src="<?php echo e(asset('/uploads/productsImages/' .$imgDetail->image)); ?>" style="width: 150px; height: 100px;"></td>
                             <td  style="text-align:center;">
                                 <div class="btn-group">
-                                    <a href="{{'/admin/delete-image/' .$imgDetail->id}}" type="button" class="btn btn-danger btn-sm" ><i class="fa fa-trash-o"></i> </a>
+                                    <a href="<?php echo e('/admin/delete-image/' .$imgDetail->id); ?>" type="button" class="btn btn-danger btn-sm" ><i class="fa fa-trash-o"></i> </a>
                                 </div>
 
                             </td>
                         </tr>
-                       @endforeach
+                       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
                     </table>
                 </div>
@@ -105,4 +106,5 @@
         </div>
     </div>
     <!--end main content inner -->
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.adminLayout.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Mahmoud\Desktop\the project\Electronic-E-commerce-project\project\resources\views/admin/products/add-images.blade.php ENDPATH**/ ?>

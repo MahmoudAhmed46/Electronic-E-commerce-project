@@ -11,39 +11,18 @@
 |
 */
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-});
-Route::get('/admin/add-banners', function () {
-    return view('admin.banners.add-banners');
-});
-Route::get('/admin/edit-banners', function () {
-    return view('admin.banners.edit-banners');
-});
-Route::get('/admin/view-banners', function () {
-    return view('admin.banners.view-banners');
-});
-Route::get('/admin/add-category', function () {
-    return view('admin.categories.add-category');
-});
-Route::get('/admin/edit-category', function () {
-    return view('admin.categories.edit-category');
-});
-Route::get('/admin/view-category', function () {
-    return view('admin.categories.view-category');
-});
-Route::get('/admin/add-products', function () {
-    return view('admin.products.add-products');
-});
-Route::get('/admin/edit-products', function () {
-    return view('admin.products.edit-products');
-});
-Route::get('/admin/view-products', function () {
-    return view('admin.products.view-products');
-});
-Route::get('/admin/add-images', function () {
-    return view('admin.products.add-images');
-});
+Route::get('/admin/dashboard', 'AdminController@dashboard');
+Route::match(['get','post'],'/admin/add-category','CategoriesController@addCategory');
+Route::match(['get','post'],'/admin/edit-category/{id}','CategoriesController@editCategory');
+Route::get('/admin/view-category', 'CategoriesController@viewCategory');
+Route::get('/admin/delete-category/{id}', 'CategoriesController@deleteCategory');
+Route::post('/admin/update-status-category','CategoriesController@updateStatus');
+Route::match(['get','post'],'/admin/add-products', 'ProductController@addProduct');
+Route::match(['get','post'],'/admin/edit-products/{id}','ProductController@editProduct');
+Route::get('/admin/view-products','ProductController@viewProduct');
+Route::get('/admin/delete-product/{id}','ProductController@deleteProduct');
+Route::match(['get','post'],'/admin/add-images/{id}', 'ProductController@addImage');
+Route::get('/admin/delete-image/{id}', 'ProductController@deleteImage');
 
 Route::get('/', function () {
     return view('home');
