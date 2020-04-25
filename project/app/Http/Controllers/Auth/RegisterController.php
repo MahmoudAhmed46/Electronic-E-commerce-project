@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'address' => ['required', 'string', 'max:255'],
             'state' => ['required', 'string', 'max:255'],
             'city' => ['required', 'string', 'max:255'],
-            'postalCode' => ['required', 'string', 'max:255'],
+            'pincode' => ['required', 'string', 'max:255'],
             'mobile' => ['required', 'string', 'max:255']
         ]);
     }
@@ -75,7 +75,7 @@ class RegisterController extends Controller
             'address' => $data['address'],
             'state' => $data['state'],
             'city' => $data['city'],
-            'pincode' => $data['postalCode'],
+            'pincode' => $data['pincode'],
             'mobile' => $data['mobile']
         ]);
     }

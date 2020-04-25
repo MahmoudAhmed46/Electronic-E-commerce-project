@@ -80,7 +80,7 @@
                             <label for="postalCode" class="col-md-4 col-form-label text-md-right">{{ __('Postal Code') }}</label>
 
                             <div class="col-md-6">
-                                <input id="pincode" type="text" class="form-control @error('pincode') is-invalid @enderror" name="pincode" value="{{ old('postalCode') }}" required autocomplete="pincode" autofocus>
+                                <input id="pincode" type="text" class="form-control @error('pincode') is-invalid @enderror" name="pincode" value="{{ old('pincode') }}" required autocomplete="pincode" autofocus>
 
                                 @error('pincode')
                                 <span class="invalid-feedback" role="alert">

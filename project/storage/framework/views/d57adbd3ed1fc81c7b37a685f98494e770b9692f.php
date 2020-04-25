@@ -7,9 +7,10 @@
             <?php $__currentLoopData = $cart->items; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="card mb-2">
                         <div class="card-body">
-                            <h5 class="card-title"><?php echo e($product->title); ?></h5>
+                            <h5 class="card-title"><?php echo e($product['title']); ?></h5>
                         </div>
                     </div>
+
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
         <div class="col-md-4">
