@@ -50,26 +50,28 @@
             </div>
         </div>
     </div>
+
     <div id="boody">
         <div  class="pic">
-            <img src="<?php echo e(asset('assets/images/Labtop.jpg')); ?>">
+            <img src="<?php echo e(asset('assets/images/profile_picture.png')); ?>">
             <p>Full Name</p>
         </div>
         <div class="info">
             <form>
                 <fieldset>
-                <p>Email:</p>
-                <input type="text" value="example@email.com" readonly>
-                <p>Country:</p>
-                <input type="text" value="country-city" readonly>
-                <p>Mobile:</p>
-                <input type="text" value="123456789" readonly>
-                <p>Pincode:</p>
-                <input type="text" value="12345678989876786" readonly>
+                    <p>Email:</p>
+                    <input type="text" value="example@email.com" readonly>
+                    <p>Country:</p>
+                    <input type="text" value="country-city" readonly>
+                    <p>Mobile:</p>
+                    <input type="text" value="123456789" readonly>
+                    <p>Pincode:</p>
+                    <input type="text" value="12345678989876786" readonly>
                 </fieldset>
            </form>
         </div>
     </div>
+
     <div id="footer">
         <div id="about">
             <h2 style="color: darkred;">About</h2>
@@ -91,7 +93,7 @@
             </ul>
         </div>
         <hr>
-        <p>&copy 2020 Acadmya. All rights reserved.</p>
+        <p>&copy 2020 Electronic Shop. All rights reserved.</p>
     </div>
 </div>
 </body>

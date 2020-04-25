@@ -11,6 +11,7 @@
                             <h5 class="card-title">{{$product['title']}}</h5>
                         </div>
                     </div>
+
                 @endforeach
         </div>
         <div class="col-md-4">

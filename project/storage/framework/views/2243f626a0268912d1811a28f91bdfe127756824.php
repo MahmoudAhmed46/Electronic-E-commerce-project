@@ -122,7 +122,7 @@ endif; ?>
 if (isset($message)) { $messageCache = $message; }
 $message = $errors->first('pincode'); ?> is-invalid <?php unset($message);
 if (isset($messageCache)) { $message = $messageCache; }
-endif; ?>" name="pincode" value="<?php echo e(old('postalCode')); ?>" required autocomplete="pincode" autofocus>
+endif; ?>" name="pincode" value="<?php echo e(old('pincode')); ?>" required autocomplete="pincode" autofocus>
 
                                 <?php if ($errors->has('pincode')) :
 if (isset($message)) { $messageCache = $message; }

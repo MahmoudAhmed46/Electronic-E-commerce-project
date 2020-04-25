@@ -132,7 +132,7 @@
                             <p><?php echo e($prod->name); ?></p>
                             <p style="color:#fff;font-weight: bold;
                                         ">Price : <?php echo e($prod->price); ?>$</p>
-                            <a class="btn btn-primary" href="<?php echo e(route('product.addToCart',$prod->id)); ?>">Add to cart</a>
+                            <a class="btn btn-primary" href="<?php echo e(url('/cart/'.$prod->id)); ?>">Add to cart</a>
                         </div>
                     </div>
                 </div>

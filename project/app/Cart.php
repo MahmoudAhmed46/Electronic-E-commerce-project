@@ -8,7 +8,6 @@ class Cart extends Model
     public $items;
     public $totalQty;
     public $totalPrice;
-
     public  function __construct($cart = null)
     {
         if($cart){
@@ -30,14 +29,17 @@ class Cart extends Model
             'image'=>$product->image
         ];
         if($this->items){
-            if (array_key_exists($product->id, $this->items)) {
+            if (!array_key_exists($product->id, $this->items)) {
+                $this->items[$product->id]=$item;
+                $this->totalQty++;
                 $item = $this->items[$product->id];
+                $this->totalPrice += $product->price;
             }
-        }
-                $item['qty']++;
-                $item['price']=$item['qty']*$product->price;
-                $this->items[$product->id] = $item;
+            else{
                 $this->totalQty++;
                 $this->totalPrice += $product->price;
+            }
+        }
+$this->items[$product->id]['qty']++;
     }
 }

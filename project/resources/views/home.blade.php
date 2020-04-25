@@ -131,7 +131,7 @@
                             <p>{{$prod->name}}</p>
                             <p style="color:#fff;font-weight: bold;
                                         ">Price : {{$prod->price}}$</p>
-                            <a class="btn btn-primary" href="{{route('product.addToCart',$prod->id)}}">Add to cart</a>
+                            <a class="btn btn-primary" href="{{url('/cart/'.$prod->id)}}">Add to cart</a>
                         </div>
                     </div>
                 </div>
