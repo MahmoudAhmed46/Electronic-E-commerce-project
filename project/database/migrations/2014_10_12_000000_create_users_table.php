@@ -25,7 +25,6 @@ class CreateUsersTable extends Migration
             $table->boolean('is_Admin')->default(false);
             $table->string('password');
             $table->string('mobile');
-            $table->string('image');
             $table->rememberToken();
             $table->timestamps();
         });

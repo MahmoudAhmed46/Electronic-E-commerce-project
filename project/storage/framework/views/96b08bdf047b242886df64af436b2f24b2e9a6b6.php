@@ -13,14 +13,40 @@
                 </div>
             </div>
             <div class="col-sm-6 clearfix">
-                <div class="user-profile pull-right">
-                    <img class="avatar user-thumb" src="assets/images/author/avatar.png" alt="avatar">
-                    <h4 class="user-name dropdown-toggle" data-toggle="dropdown">Kumkum Rai <i class="fa fa-angle-down"></i></h4>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Message</a>
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <a class="dropdown-item" href="#">Log Out</a>
-                    </div>
+                <div class="user-profile pull-right" style="height: 70px;">
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                        <?php if(auth()->guard()->guest()): ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?php echo e(route('login')); ?>"><?php echo e(__('Login')); ?></a>
+                            </li>
+                            <?php if(Route::has('register')): ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?php echo e(route('register')); ?>"><?php echo e(__('Register')); ?></a>
+                                </li>
+                            <?php endif; ?>
+                        <?php else: ?>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" style="color: white;" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <?php echo e(Auth::user()->name); ?> <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        <?php echo e(__('Logout')); ?>
+
+                                    </a>
+
+                                    <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+                                        <?php echo csrf_field(); ?>
+                                    </form>
+                                </div>
+                            </li>
+                        <?php endif; ?>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -111,4 +137,5 @@
     </div>
     <!-- table orders  end!-->
     <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.adminLayout.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\FCI\E-Commerce\Electronic-E-commerce-project\project\resources\views/admin/dashboard.blade.php ENDPATH**/ ?>

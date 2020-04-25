@@ -52,9 +52,14 @@ Route::get('/shopping', function () {
 });
 
 Auth::routes();
+<<<<<<< HEAD
 
 Route::get('/profile','profile@fun');
+=======
+Route::get('/profile','profile@fun')->name('profile');
+>>>>>>> 3c780f156f51fc591372087c7bc15f096f082c2c
 Route::get('/','HomeController@index')->name('home');
+Route::get('/home','HomeController@index')->name('home');
 Route::get('/category/{id}', 'HomeController@show')->name('show');
 Route::get('/add-to-cart/{id}','HomeController@getAddToCart')->name('product.addToCart');
 Route::get('/shopping-cart','HomeController@getCart')->name('product.shoppingCart');
