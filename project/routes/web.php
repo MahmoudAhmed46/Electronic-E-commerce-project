@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/admin/dashboard', 'AdminController@dashboard');
+Route::get('/admin/dashboard', 'AdminController@dashboard')->name('Admin-Dashboard');
 Route::match(['get','post'],'/admin/add-category','CategoriesController@addCategory');
 Route::match(['get','post'],'/admin/edit-category/{id}','CategoriesController@editCategory');
 Route::get('/admin/view-category', 'CategoriesController@viewCategory');
@@ -24,15 +24,16 @@ Route::get('/admin/delete-product/{id}','ProductController@deleteProduct');
 Route::match(['get','post'],'/admin/add-images/{id}', 'ProductController@addImage');
 Route::get('/admin/delete-image/{id}', 'ProductController@deleteImage');
 
-Route::get('/', function () {
-    return view('home');
-});
+/*
+ * All user Routes
+ * */
 Route::get('/history', function () {
     return view('history');
 });
 Route::get('/cart', function () {
     return view('cart');
 });
+<<<<<<< HEAD
 Route::get('/profile','profile@fun');
 
 Route::get('/labtopscategory',function () {
@@ -49,8 +50,19 @@ Route::get('/homenessitiescategory',function () {
 });
 Route::get('/accessoriescategory',function () {
     return view('products-in-accessories-category');
+=======
+Route::get('/p', function () {
+    return view('profile');
+});
+Route::get('/shopping', function () {
+    return view('shopping-cart');
+>>>>>>> 0ea9be0daaedfc1a7a6cc3f3de9975f10c1a7aa2
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/','HomeController@index')->name('home');
+Route::get('/category/{id}', 'HomeController@show')->name('show');
+Route::get('/add-to-cart/{id}','HomeController@getAddToCart')->name('product.addToCart');
+Route::get('/shopping-cart','HomeController@getCart')->name('product.shoppingCart');
+

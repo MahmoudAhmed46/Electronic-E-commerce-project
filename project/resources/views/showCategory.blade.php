@@ -1,21 +1,53 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="urf-8">
     <title>Electronic Shop</title>
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/user/style.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+</head>
 <body>
-<div id="container">
+<div id="content">
     <div id="header">
         <div id="subheader">
             <!--<div class="upper-header">-->
             <p>World fastest online shopping place</p>
-            <a href="#">Guest</a> <a href="#">Consume</a>
-            <a href="#">Donwload App</a> <a href="#">Help</a>
+            @guest
+                <a href="{{ route('login') }}" style="margin-right:25px;">{{ __('Login') }}</a>
+                @if (Route::has('register'))
+                    <a  href="{{ route('register') }}">{{ __('Register') }}</a>
+                @endif
+            @else
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"  style="color: black;">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+            @endguest
             <!-- </div>-->
         </div>
         <div id="main-header">
@@ -39,7 +71,7 @@
             <!--Navigation-->
             <div id="navigation">
                 <nav id="mainav">
-                    <a href="{{asset('/user')}}">Home</a>
+                    <a href="{{url('/')}}">Home</a>
                     <a href="#">New arrivals</a>
                     <a href="#offers">Deals</a>
                     <a href="#category">Electronics</a>
@@ -54,23 +86,24 @@
         <div id="products">
             <div id="heading-block">
                 <i class="fa fa-align-justify" style="font-size:36px;"></i>
-                <span>LCD screen</span>
+                <span>{{$data['cat_name']}}</span>
             </div>
-            
+            @foreach($data['products'] as $product)
             <div class="prod-box">
-                <img src="{{asset('assets/images/samsung-lcd-screen.jpg')}}" alt="samsung lcd screen">
+                <img src="{{asset('/uploads/products/' .$product->image)}}" alt={{$product->name}}>
                 <div class="prod-trans">
                     <div class="prod-feature">
-                        <p>Samsung LCD Screen</p>
-                        <p style="color:#fff;font-weight: bold;">Price : 300$</p>
-                        <input type="button" value="Add to cart">
+                        <p>{{$product->name}}</p>
+                        <p style="color:#fff;font-weight: bold;">Price : {{$product->price}}$</p>
+                        <p style="color:#fff;font-weight: bold;">Items : {{$product->quantity}}</p>
+                        <a class="btn btn-primary" href="{{route('product.addToCart',$product->id)}}">Add to cart</a>
                     </div>
                 </div>
             </div>
-
+        @endforeach
         </div>
     </div>
-    <div id="footer">
+    <div id="footer" >
         <div id="about">
             <h2 style="color: darkred;">About</h2>
             <p>Section 5</p>

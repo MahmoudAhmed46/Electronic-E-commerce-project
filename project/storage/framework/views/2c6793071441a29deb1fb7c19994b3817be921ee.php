@@ -4,7 +4,7 @@
 <head>
     <meta charset="urf-8">
     <title>Electronic Shop</title>
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/user/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/user/cart_style.css')); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -33,72 +33,90 @@
             <!--User Menu-->
             <div id="all-cart">
                 <span id="cart-text">Cart</span>
-                <a href="{{url('/cart')}}"><img src="{{asset('assets/images/cart-logo.png')}}"></a>
-                <span id="num">0</span>
+                <a href="<?php echo e(url('/cart')); ?>"><img src="<?php echo e(asset('assets/images/cart-logo.png')); ?>"></a>
+                <span id="num">2</span>
             </div>
             <!--Navigation-->
             <div id="navigation">
                 <nav id="mainav">
-                    <a href="{{asset('/user')}}">Home</a>
+                    <a href="<?php echo e(url('/')); ?>">Home</a>
                     <a href="#">New arrivals</a>
                     <a href="#offers">Deals</a>
                     <a href="#category">Electronics</a>
                     <a href="#category">Accessroies</a>
                     <a href="#products">Products</a>
-                    <a href="{{url('/history')}}">History</a>
+                    <a href="<?php echo e(url('/history')); ?>">History</a>
                 </nav>
             </div>
         </div>
     </div>
     <div id="boody">
-        <div id="products">
-            <div id="heading-block">
-                <i class="fa fa-align-justify" style="font-size:36px;"></i>
-                <span>Labtops</span>
+        <div class="prods">
+            <span id="shopping-cart">SHOPPING CART</span>
+            <div class="prod-box">
+                <img src="<?php echo e(asset('assets/images/lenovo-ideapad.jpg')); ?>">
+                <p>lenovo-ideapad</p>
+                <p style="color:gray;">800 $</p>
+                <button class="delete">X</button>
             </div>
             <div class="prod-box">
-                <img src="{{asset('assets/images/lenovo-ideapad.jpg')}}" alt="lenovo ideapad">
-                <div class="prod-trans">
-                    <div class="prod-feature">
-                        <p>lenovo ideapad</p>
-                        <p style="color:#fff;font-weight: bold;">Price : 800$</p>
-                        <p style="color:#fff;font-weight: bold;">Items : 1</p>
-                    </div>
-                </div>
+                <img src="<?php echo e(asset('assets/images/samsung-galaxy-note-10.jpg')); ?>">
+                <p>samsung galaxy note 10</p>
+                <p style="color:gray;">300 $</p>
+                <button class="delete">X</button>
             </div>
-            <div class="prod-box">
-                <img src="{{asset('assets/images/dell-inspiron.jpg')}}" alt="dell inspiron">
-                <div class="prod-trans">
-                    <div class="prod-feature">
-                        <p>Dell inspiron</p>
-                        <p style="color:#fff;font-weight: bold;">Price : 1050$</p>
-                        <input type="button" value="Add to cart">
-                    </div>
-                </div>
+            <div class="total-price">
+                <p style="color:gray;">Subtotal</p>
+                <p>1100 $</p>
             </div>
-            <div class="prod-box">
-                <img src="{{asset('assets/images/lenovo-labtop-charger.jpg')}}" alt="lenovo labtop charger">
-                <div class="prod-trans">
-                    <div class="prod-feature">
-                        <p>Lenovo Labtop Charger</p>
-                        <p style="color:#fff;font-weight: bold;">Price : 100$</p>
-                        <input type="button" value="Add to cart">
+        </div>
+        <div class="personal-info">
+            <form>
+                <fieldset>
+                    <legend>Address Details</legend>
+                    <label>Full name</label>
+                    <input type="text" name="name">
+                    <label>Phone Number</label>
+                    <input type="text" name="number">
+                    <label>Email Address</label>
+                    <input type="email" name="email">
+                    <div class="selects">
+                        <div>
+                            <label>State</label>
+                            <select name="state">
+                                <option>Egypt</option>
+                                <option>United State</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>City</label>
+                            <select name="city">
+                                <option>Cairo</option>
+                                <option>Assiut</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="prod-box">
-                <img src="{{asset('assets/images/apple-macbook.jpg')}}" alt="apple macbook pro">
-                <div class="prod-trans">
-                    <div class="prod-feature">
-                        <p>Apple MacBook Pro</p>
-                        <p style="color:#fff;font-weight: bold;">Price : 1500$</p>
-                        <input type="button" value="Add to cart">
-                    </div>
-                </div>
-            </div>
+                    <label>Address</label>
+                    <input type="text" name="address">
+                </fieldset>
 
+            </form>
+        </div>
+        <div class="card-info">
+            <form>
+                <fieldset>
+                    <legend>Card Details</legend>
+                    <label>Name on card</label>
+                    <input type="text" name="name_card">
+                    <label>Card number</label>
+                    <input type="text" name="card-num">
+                    <input type="submit" value="Check Out">
+                </fieldset>
+
+            </form>
         </div>
     </div>
+    <!--Footer-->
     <div id="footer">
         <div id="about">
             <h2 style="color: darkred;">About</h2>
@@ -123,5 +141,8 @@
         <p>&copy 2020 Electronic Shop. All rights reserved.</p>
     </div>
 </div>
+
 </body>
+
 </html>
+<?php /**PATH G:\xampp\htdocs\Electronic-E-commerce-project\project\resources\views/cart.blade.php ENDPATH**/ ?>
