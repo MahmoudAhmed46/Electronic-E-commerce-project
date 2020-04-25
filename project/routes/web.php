@@ -33,8 +33,6 @@ Route::get('/history', function () {
 Route::get('/cart', function () {
     return view('cart');
 });
-<<<<<<< HEAD
-Route::get('/profile','profile@fun');
 
 Route::get('/labtopscategory',function () {
     return view('products-in-labtops-category');
@@ -50,17 +48,13 @@ Route::get('/homenessitiescategory',function () {
 });
 Route::get('/accessoriescategory',function () {
     return view('products-in-accessories-category');
-=======
-Route::get('/p', function () {
-    return view('profile');
 });
 Route::get('/shopping', function () {
     return view('shopping-cart');
->>>>>>> 0ea9be0daaedfc1a7a6cc3f3de9975f10c1a7aa2
 });
 
 Auth::routes();
-
+Route::get('/profile','profile@fun');
 Route::get('/','HomeController@index')->name('home');
 Route::get('/category/{id}', 'HomeController@show')->name('show');
 Route::get('/add-to-cart/{id}','HomeController@getAddToCart')->name('product.addToCart');
