@@ -39,7 +39,7 @@
             <!--Navigation-->
             <div id="navigation">
                 <nav id="mainav">
-                    <a href="<?php echo e(asset('/user')); ?>">Home</a>
+                    <a href="<?php echo e(url('/')); ?>">Home</a>
                     <a href="#">New arrivals</a>
                     <a href="#offers">Deals</a>
                     <a href="#category">Electronics</a>
@@ -138,7 +138,7 @@
             </ul>
         </div>
         <hr>
-        <p>&copy 2020 Acadmya. All rights reserved.</p>
+        <p>&copy 2020 Electronic Shop. All rights reserved.</p>
     </div>
 </div>
 

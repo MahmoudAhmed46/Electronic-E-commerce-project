@@ -6,6 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>srtdash - Ecommerce Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf_token" content="<?php echo e(csrf_token()); ?>">
     <link rel="shortcut icon" type="image/png" href="<?php echo e(asset('assets/images/icon/favicon.ico')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/bootstrap.min.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/font-awesome.min.css')); ?>">
@@ -67,6 +68,50 @@
 <!-- others plugins -->
 <script src="<?php echo e(asset('assets/js/plugins.js')); ?>"></script>
 <script src="<?php echo e(asset('assets/js/scripts.js')); ?>"></script>
+<script>
+    $(document).ready(function () {
+        $('#fadeOutsuccess').fadeOut(10000);
+        $('#fadeOutwarn').fadeOut(10000);
+
+        $('#cstatus').change(function () {
+            var id=$(this).attr('rel');
+            if($(this).prop("checked")==true){
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: '/admin/update-status-category',
+                    method:'get',
+                    data: {status: 1, id: id},
+                    success:function (res) {
+                    $('#message_enable').show();
+                    $('#message_enable').fadeOut(10000);
+                    },
+                    error:function () {
+                        alert("ERROR");
+                    }
+                })
+            }
+            else{
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: '/admin/update-status-category',
+                    method:'get',
+                    data: {status: 0, id: id},
+                    success:function (res) {
+                        $('#message_enable').show();
+                        $('#message_disable').fadeOut(10000);
+                    },
+                    error:function () {
+                        alert("ERROR");
+                    }
+                })
+            }
+        })
+    })
+</script>
 </body>
 
 </html>
