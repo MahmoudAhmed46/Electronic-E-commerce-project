@@ -46,7 +46,7 @@
         </div>
 
         <div class="container mt-4 ml-5">
-            <form action="<?php echo e(url('/admin/add-category')); ?>" method="post">
+            <form action="<?php echo e(url('/admin/add-category')); ?>" method="post" enctype="multipart/form-data">
                 <?php echo csrf_field(); ?>
                 <div class="form-group">
                     <label class="lbl-form">Category Name</label>
@@ -71,8 +71,10 @@
                     <label class="lbl-form">Category Description</label>
                     <textarea name="category_description" id="category_description" class="form-control inp"></textarea>
                 </div>
-
-
+                <div class="form-group">
+                    <label class="lbl-form">Picture upload</label>
+                    <input type="file" name="img">
+                </div>
                 <div class="reset-button">
                     <input type="submit" class="btn btn-success mb-3" value="Add Category">
                 </div>

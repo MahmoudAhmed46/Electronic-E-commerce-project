@@ -70,8 +70,8 @@
 <script src="<?php echo e(asset('assets/js/scripts.js')); ?>"></script>
 <script>
     $(document).ready(function () {
-        $('#fadeOutsuccess').fadeOut(8000);
-        $('#fadeOutwarn').fadeOut(8000);
+        $('#fadeOutsuccess').fadeOut(10000);
+        $('#fadeOutwarn').fadeOut(10000);
 
         $('#cstatus').change(function () {
             var id=$(this).attr('rel');
@@ -85,7 +85,7 @@
                     data: {status: 1, id: id},
                     success:function (res) {
                     $('#message_enable').show();
-                    $('#message_enable').fadeOut(8000);
+                    $('#message_enable').fadeOut(10000);
                     },
                     error:function () {
                         alert("ERROR");
@@ -102,7 +102,7 @@
                     data: {status: 0, id: id},
                     success:function (res) {
                         $('#message_enable').show();
-                        $('#message_disable').fadeOut(8000);
+                        $('#message_disable').fadeOut(10000);
                     },
                     error:function () {
                         alert("ERROR");

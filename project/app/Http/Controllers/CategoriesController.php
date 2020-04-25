@@ -10,14 +10,23 @@ use Illuminate\Support\Facades\DB;
 
 class CategoriesController extends Controller
 {
+
+    public function index(){
+
+    }
+
     public function addCategory(Request $request){
         if($request->isMethod('post')) {
+            if ($request->hasFile('img')) {
+                $image1=time().'.'.$request['img']->getClientOriginalExtension();
+                $request['img']->move(public_path('uploads/products'),$image1);
+            }
             if(!empty($request['category_description'])){
                 DB::table('categories')->insert(['name' => $request['name'], 'code' => $request['code'],
-                    'description'=>$request['category_description'],'parient_id' => $request['parient_id']]);
+                    'description'=>$request['category_description'],'image'=>$image1,'parient_id' => $request['parient_id']]);
             }else{
                 DB::table('categories')->insert(['name' => $request['name'], 'code' => $request['code'],
-                   'description'=>'','parient_id' => $request['parient_id']]);
+                   'description'=>'','image'=>$image1,'parient_id' => $request['parient_id']]);
             }
             return redirect()->back()->with('success_message','Category added successfully');
         }

@@ -9,4 +9,5 @@ class Category extends Model
     public function products(){
         return $this->hasMany('App\Providers\Product','parient_id');
     }
+
 }

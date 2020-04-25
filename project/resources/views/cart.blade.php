@@ -138,7 +138,7 @@
             </ul>
         </div>
         <hr>
-        <p>&copy 2020 Acadmya. All rights reserved.</p>
+        <p>&copy 2020 Electronic Shop. All rights reserved.</p>
     </div>
 </div>
 
