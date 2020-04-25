@@ -27,37 +27,17 @@ Route::get('/admin/delete-image/{id}', 'ProductController@deleteImage');
 /*
  * All user Routes
  * */
-Route::get('/history', function () {
-    return view('history');
-});
-Route::match(['get','post'],'/cart/{id}','ProductController@addCart');
-Route::match(['get','post'],'/cart','ProductController@Cart');
-Route::get('/labtopscategory',function () {
-    return view('products-in-labtops-category');
-});
-Route::get('/mobilescategory',function () {
-    return view('products-in-mobiles-category');
-});
-Route::get('/lcdscreenscategory',function () {
-    return view('products-in-lcdscreen-category');
-});
-Route::get('/homenessitiescategory',function () {
-    return view('products-in-homenessities-category');
-});
-Route::get('/accessoriescategory',function () {
-    return view('products-in-accessories-category');
-});
+Route::get('/history', 'HomeController@history')->name('show-history');
+
 Route::get('/shopping', function () {
     return view('shopping-cart');
 });
 
 Auth::routes();
-<<<<<<< HEAD
+
 
 Route::get('/profile','profile@fun');
-=======
 Route::get('/profile','profile@fun')->name('profile');
->>>>>>> 3c780f156f51fc591372087c7bc15f096f082c2c
 Route::get('/','HomeController@index')->name('home');
 Route::get('/home','HomeController@index')->name('home');
 Route::get('/category/{id}', 'HomeController@show')->name('show');

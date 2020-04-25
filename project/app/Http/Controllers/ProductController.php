@@ -113,7 +113,6 @@ class ProductController extends Controller
     }
 
     public function addCart(Request $request , $id=null){
-
         $countProducts=DB::table('carts')->where(['product_id'=>$id])->count();
         if($countProducts>0){
             return redirect('/cart')->with('flash_message_error','Product already exists yo can increase quantity');
@@ -139,7 +138,7 @@ class ProductController extends Controller
 
     public function Cart(Request $request){
         $session_id=Session::get('session_id');
-        
+
         //print_r($session_id);die;
         //$userCart=Cart::where(['session_id'=>$session_id])->get();
         $userCart=DB::table('carts')->where(['session_id'=>$session_id])->get();

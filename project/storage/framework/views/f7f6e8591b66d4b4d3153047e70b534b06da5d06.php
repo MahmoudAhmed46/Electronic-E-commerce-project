@@ -79,7 +79,7 @@
                     <a href="#category">Electronics</a>
                     <a href="#category">Accessroies</a>
                     <a href="#products">Products</a>
-                    <a href="<?php echo e(url('/history')); ?>">History</a>
+                    <a href="<?php echo e(route('show-history')); ?>">History</a>
                 </nav>
             </div>
         </div>

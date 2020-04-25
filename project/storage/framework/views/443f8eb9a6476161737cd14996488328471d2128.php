@@ -19,7 +19,7 @@
     <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
 </head>
 <body>
-<div id="container">
+<div id="content">
     <div id="header">
         <div id="subheader">
             <!--<div class="upper-header">-->
