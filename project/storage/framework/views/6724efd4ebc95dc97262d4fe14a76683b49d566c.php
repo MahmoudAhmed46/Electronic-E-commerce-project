@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-    <title><?php echo e(config('app.name', 'Laravel')); ?></title>
+    <title><?php echo $__env->yieldContent('title'); ?></title>
 
     <!-- Scripts -->
     <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
@@ -15,7 +15,6 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
     <!-- Styles -->
     <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
 </head>
@@ -23,9 +22,10 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="<?php echo e(url('/')); ?>">
-                    <?php echo e(config('app.name', 'Laravel')); ?>
-
+                <a class="navbar-brand" href="<?php echo e(route('home')); ?>">
+                    <div id="logo">
+                        <span>Electronic</span> <span>Shop</span>
+                    </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="<?php echo e(__('Toggle navigation')); ?>">
                     <span class="navbar-toggler-icon"></span>
@@ -40,6 +40,13 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo e(route('product.shoppingCart')); ?>">
+                                <span class="badge"><?php echo e(Session::has('cart')?Session::get('cart')->totalQty:''); ?></span>
+                                <a href="<?php echo e(route('product.shoppingCart')); ?>"><img src="<?php echo e(asset('assets/images/cart-logo.png')); ?>" style="width: 50px;height: 20px;"></a>
+
+                            </a>
+                        </li>
                         <?php if(auth()->guard()->guest()): ?>
                             <li class="nav-item">
                                 <a class="nav-link" href="<?php echo e(route('login')); ?>"><?php echo e(__('Login')); ?></a>
@@ -62,7 +69,6 @@
                                         <?php echo e(__('Logout')); ?>
 
                                     </a>
-
                                     <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
                                         <?php echo csrf_field(); ?>
                                     </form>

@@ -4,26 +4,11 @@
 <head>
     <meta charset="urf-8">
     <title>Electronic Shop</title>
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/user/style.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/user/profile_css.css')}}">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/user/style.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/user/profile_css.css')); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<<<<<<< HEAD
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>Electronic Shop</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-=======
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/app.js') }}" defer></script>
->>>>>>> d20e8afdbecf1521e31adff7bcc0441003069177
+    <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
+    <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
 </head>
 <body>
 <div id="content">
@@ -31,33 +16,30 @@
         <div id="subheader">
             <p>World fastest online shopping place</p>
             <!-- </div>-->
-            @guest
-                <a href="{{ route('login') }}" style="margin-right:25px;">{{ __('Login') }}</a>
-                @if (Route::has('register'))
-                    <a  href="{{ route('register') }}">{{ __('Register') }}</a>
-                @endif
-            @else
+            <?php if(auth()->guard()->guest()): ?>
+                <a href="<?php echo e(route('login')); ?>" style="margin-right:25px;"><?php echo e(__('Login')); ?></a>
+                <?php if(Route::has('register')): ?>
+                    <a  href="<?php echo e(route('register')); ?>"><?php echo e(__('Register')); ?></a>
+                <?php endif; ?>
+            <?php else: ?>
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }} <span class="caret"></span>
+                        <?php echo e(Auth::user()->name); ?> <span class="caret"></span>
                     </a>
-<<<<<<< HEAD
-
-=======
->>>>>>> d20e8afdbecf1521e31adff7bcc0441003069177
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();" style="color: black;">
-                            {{ __('Logout') }}
+                            <?php echo e(__('Logout')); ?>
+
                         </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
+                        <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+                            <?php echo csrf_field(); ?>
                         </form>
                     </div>
                 </li>
-            @endguest
+            <?php endif; ?>
         </div>
         <div id="main-header">
             <!--Logo-->
@@ -74,19 +56,19 @@
             <!--User Menu-->
             <div id="all-cart">
                 <span id="cart-text">Cart</span>
-                <a href="{{route('product.shoppingCart')}}"><img src="{{asset('assets/images/cart-logo.png')}}"></a>
-                <span class="badge">{{Session::has('cart')?Session::get('cart')->totalQty:'0'}}</span>
+                <a href="<?php echo e(route('product.shoppingCart')); ?>"><img src="<?php echo e(asset('assets/images/cart-logo.png')); ?>"></a>
+                <span class="badge"><?php echo e(Session::has('cart')?Session::get('cart')->totalQty:'0'); ?></span>
             </div>
             <!--Navigation-->
             <div id="navigation">
                 <nav id="mainav">
-                    <a href="{{url('/')}}">Home</a>
+                    <a href="<?php echo e(url('/')); ?>">Home</a>
                     <a href="#">New arrivals</a>
                     <a href="#offers">Deals</a>
                     <a href="#category">Electronics</a>
                     <a href="#category">Accessroies</a>
                     <a href="#products">Products</a>
-                    <a href="{{url('/history')}}">History</a>
+                    <a href="<?php echo e(url('/history')); ?>">History</a>
                 </nav>
             </div>
         </div>
@@ -94,27 +76,19 @@
 
     <div id="boody">
         <div  class="pic">
-            <img src="{{asset('assets/images/profile_picture.png')}}">
-<<<<<<< HEAD
-            <p>{{Auth::user()->name}}</p>
-=======
->>>>>>> d20e8afdbecf1521e31adff7bcc0441003069177
+            <img src="<?php echo e(asset('assets/images/profile_picture.png')); ?>">
         </div>
         <div class="info">
             <form>
                 <fieldset>
                     <p>Email:</p>
-<<<<<<< HEAD
-                    <input type="text" value="{{Auth::user()->email}}" readonly>
-=======
-                    <input type="text" value="{{Auth::user()->name}}" readonly>
->>>>>>> d20e8afdbecf1521e31adff7bcc0441003069177
+                    <input type="text" value="<?php echo e(Auth::user()->name); ?>" readonly>
                     <p>Country:</p>
-                    <input type="text" value="{{Auth::user()->state}}" readonly>
+                    <input type="text" value="<?php echo e(Auth::user()->state); ?>" readonly>
                     <p>Mobile:</p>
-                    <input type="text" value="{{Auth::user()->mobile}}" readonly>
+                    <input type="text" value="<?php echo e(Auth::user()->mobile); ?>" readonly>
                     <p>Pincode:</p>
-                    <input type="text" value="{{Auth::user()->pincode}}" readonly>
+                    <input type="text" value="<?php echo e(Auth::user()->pincode); ?>" readonly>
                 </fieldset>
            </form>
         </div>
@@ -134,7 +108,7 @@
             <h2 style="color: darkred;">Contact Us</h2>
             <ul>
                 <li><a id="facebook" href="https://www.facebook.com/LionMaax"><i class="fa fa-facebook-square" style="font-size: 30px;"></i></a></li>
-                <li><a id="github" href="https://github.com/MahmoudAhmed46/Electronic-E-commerce-project.git"><i class="fa fa-github" style="font-size: 30px;"></i></a>
+                <li><a id="github" href="https://github.com/MahmoudMRefaie/E-Commerce-Project"><i class="fa fa-github" style="font-size: 30px;"></i></a>
                 </li>
                 <li><a id="linkedin" href="https://www.linkedin.com/in/mahmoud-refaie-ba6618186/"><i class="fa fa-linkedin-square" style="font-size: 30px;"></i></a>
                 </li>
@@ -146,3 +120,4 @@
 </div>
 </body>
 </html>
+<?php /**PATH G:\xampp\htdocs\Electronic-E-commerce-project\project\resources\views/profile.blade.php ENDPATH**/ ?>

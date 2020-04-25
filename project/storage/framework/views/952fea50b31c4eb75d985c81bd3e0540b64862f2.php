@@ -54,17 +54,15 @@
         <div class="prods">
             <span id="shopping-cart">SHOPPING CART</span>
             <div class="prod-box">
-                <img src="<?php echo e(asset('assets/images/lenovo-ideapad.jpg')); ?>">
-                <p>lenovo-ideapad</p>
-                <p style="color:gray;">800 $</p>
+                <?php $__currentLoopData = $userCart; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cart): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+                <img src="<?php echo e(asset('uploads/products/'.$cart->image)); ?>">
+
+                <p><?php echo e($cart->product_name); ?></p>
+                <p style="color:gray;"><?php echo e($cart->price); ?> $</p>
                 <button class="delete">X</button>
             </div>
-            <div class="prod-box">
-                <img src="<?php echo e(asset('assets/images/samsung-galaxy-note-10.jpg')); ?>">
-                <p>samsung galaxy note 10</p>
-                <p style="color:gray;">300 $</p>
-                <button class="delete">X</button>
-            </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             <div class="total-price">
                 <p style="color:gray;">Subtotal</p>
                 <p>1100 $</p>
@@ -138,7 +136,7 @@
             </ul>
         </div>
         <hr>
-        <p>&copy 2020 Acadmya. All rights reserved.</p>
+        <p>&copy 2020 Electronic Shop. All rights reserved.</p>
     </div>
 </div>
 

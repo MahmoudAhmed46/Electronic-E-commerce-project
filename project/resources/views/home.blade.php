@@ -78,7 +78,7 @@
                     <a href="#category">Electronics</a>
                     <a href="#category">Accessroies</a>
                     <a href="#products">Products</a>
-                    <a href="{{url('/history')}}">History</a>
+                    <a href="{{route('show-history')}}">History</a>
                 </nav>
             </div>
         </div>
@@ -172,7 +172,7 @@
             <h2 style="color: darkred;">Contact Us</h2>
             <ul>
                 <li><a id="facebook" href="https://www.facebook.com/LionMaax"><i class="fa fa-facebook-square" style="font-size: 30px;"></i></a></li>
-                <li><a id="github" href="https://github.com/MahmoudMRefaie/E-Commerce-Project"><i class="fa fa-github" style="font-size: 30px;"></i></a>
+                <li><a id="github" href="https://github.com/MahmoudAhmed46/Electronic-E-commerce-project.git"><i class="fa fa-github" style="font-size: 30px;"></i></a>
                 </li>
                 <li><a id="linkedin" href="https://www.linkedin.com/in/mahmoud-refaie-ba6618186/"><i class="fa fa-linkedin-square" style="font-size: 30px;"></i></a>
                 </li>

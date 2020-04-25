@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Product;
 use App\ProductImage;
+use App\Cart;
+use Session;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Resources\Json\PaginatedResourceResponse;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -107,5 +110,43 @@ class ProductController extends Controller
     public function deleteImage($id=null){
         DB::table('product_images')->where('id',$id)->delete();
         return redirect()->back()->with('danger_message','Image deleted successflly');
+    }
+
+    public function addCart(Request $request , $id=null){
+        $countProducts=DB::table('carts')->where(['product_id'=>$id])->count();
+        if($countProducts>0){
+            return redirect('/cart')->with('flash_message_error','Product already exists yo can increase quantity');
+        }
+        $session_id=Session::get('session_id');
+        if(empty($session_id)){
+            $session_id=str_random(40);
+            Session::put('session_id',$session_id);
+        }
+        $product=Product::where(['id' => $id])->first();
+        //print_r($product->get());die;
+        $cart=new Cart();
+        $cart->product_id=$product->id;
+        $cart->product_name=$product->name;
+        $cart->product_code=$product->code;
+        $cart->price=$product->price;
+        $cart->quantity=1;
+        $cart->user_email='';
+        $cart->session_id=$session_id;
+        $cart->save();
+        return view('cart');
+    }
+
+    public function Cart(Request $request){
+        $session_id=Session::get('session_id');
+
+        //print_r($session_id);die;
+        //$userCart=Cart::where(['session_id'=>$session_id])->get();
+        $userCart=DB::table('carts')->where(['session_id'=>$session_id])->get();
+        /*get the image name from products table and add it in $userCart array*/
+        foreach ($userCart as $key=>$cart){
+            $getProduct=Product::where(['id'=>$cart->product_id])->first();
+            $userCart[$key]->image=$getProduct->image;
+        }
+        return view('cart')->with(compact('userCart'));
     }
 }

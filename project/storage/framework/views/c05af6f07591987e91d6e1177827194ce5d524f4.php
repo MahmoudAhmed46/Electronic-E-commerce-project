@@ -1,21 +1,55 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="urf-8">
-    <title>History</title>
+    <title>Electronic Shop</title>
     <link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/user/style.css')); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
+    <title>Electronic Shop</title>
+
+    <!-- Scripts -->
+    <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!-- Styles -->
+    <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
 </head>
 <body>
-<div id="container">
+<div id="content">
     <div id="header">
         <div id="subheader">
             <!--<div class="upper-header">-->
-            <p>World fastest electronic online shopping place</p>
-
+            <p>World fastest online shopping place</p>
             <!-- </div>-->
+            <?php if(auth()->guard()->guest()): ?>
+                <a href="<?php echo e(route('login')); ?>" style="margin-right:25px;"><?php echo e(__('Login')); ?></a>
+                <?php if(Route::has('register')): ?>
+                    <a  href="<?php echo e(route('register')); ?>"><?php echo e(__('Register')); ?></a>
+                <?php endif; ?>
+            <?php else: ?>
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <?php echo e(Auth::user()->name); ?> <span class="caret"></span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="<?php echo e(route('logout')); ?>"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" style="color: black;">
+                            <?php echo e(__('Logout')); ?>
+
+                        </a>
+
+                        <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
+                            <?php echo csrf_field(); ?>
+                        </form>
+                    </div>
+                </li>
+            <?php endif; ?>
         </div>
         <div id="main-header">
             <!--Logo-->
@@ -24,7 +58,7 @@
             </div>
             <!--Search-->
             <div id="search">
-                <form action="">
+                <form action="#">
                     <input id="search-input" type="text" name="text" placeholder="What are you looking for ?">
                     <input id="search-submit" type="submit" name="submit" value="Search">
                 </form>
@@ -32,8 +66,8 @@
             <!--User Menu-->
             <div id="all-cart">
                 <span id="cart-text">Cart</span>
-                <a href="<?php echo e(url('/cart')); ?>"><img src="<?php echo e(asset('assets/images/cart-logo.png')); ?>"></a>
-                <span id="num">0</span>
+                <a href="<?php echo e(route('product.shoppingCart')); ?>"><img src="<?php echo e(asset('assets/images/cart-logo.png')); ?>"></a>
+                <span class="badge"><?php echo e(Session::has('cart')?Session::get('cart')->totalQty:'0'); ?></span>
             </div>
             <!--Navigation-->
             <div id="navigation">
@@ -57,81 +91,20 @@
                 <h2>My Cart</h2>
             </div>
             <div class="prod-container">
-
+               <?php $__currentLoopData = $carts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cart): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="prod-box">
-                    <img src="<?php echo e(asset('assets/images/lenovo-ideapad.jpg')); ?>" alt="lenovo ideapad">
+                    <img src="<?php echo e(asset('uploads/products/' .$cart->image)); ?>" alt="lenovo ideapad">
                     <div class="prod-trans">
                         <div class="prod-feature">
-                            <p>lenovo ideapad</p>
+                            <p><?php echo e($cart->product_name); ?></p>
                             <p style="color:#fff;font-weight: bold;
-                                        ">Price : 800$</p>
+                                        "><strong>Price : $</strong><?php echo e($cart->price); ?></p>
                             <p style="color:#fff;font-weight: bold;
-                                    ">Items : 1</p>
+                                    "><strong>Items : </strong><?php echo e($cart->quantity); ?></p>
                         </div>
                     </div>
                 </div>
-
-                <div class="prod-box">
-                    <img src="<?php echo e(asset('assets/images/smart-washing.jpg')); ?>" alt="samsung smart washing machine">
-                    <div class="prod-trans">
-                        <div class="prod-feature">
-                            <p>samsung smart washing machine</p>
-                            <p style="color:#fff;font-weight: bold;
-                                        ">Price : 850$</p>
-                            <p style="color:#fff;font-weight: bold;
-                                    ">Items : 1</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="prod-box">
-                    <img src="<?php echo e(asset('assets/images/toshiba-vacuum-cleaner.jpg')); ?>" alt="toshiba vacuum cleaner">
-                    <div class="prod-trans">
-                        <div class="prod-feature">
-                            <p>toshiba vacuum cleaner</p>
-                            <p style="color:#fff;font-weight: bold;
-                                        ">Price : 100$</p>
-                            <p style="color:#fff;font-weight: bold;
-                                    ">Items : 1</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="prod-box">
-                    <img src="<?php echo e(asset('assets/images/samsung-lcd-screen.jpg')); ?>" alt="samsung lcd screen">
-                    <div class="prod-trans">
-                        <div class="prod-feature">
-                            <p>Samsung LCD Screen</p>
-                            <p style="color:#fff;font-weight: bold;
-                                        ">Price : 300$</p>
-                            <p style="color:#fff;font-weight: bold;
-                                    ">Items : 1</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="prod-box">
-                    <img src="<?php echo e(asset('assets/images/Huawei-earphones.jpg')); ?>" alt="Huawei-earphones">
-                    <div class="prod-trans">
-                        <div class="prod-feature">
-                            <p>Huawei Earphones</p>
-                            <p style="color:#fff;font-weight: bold;
-                                        ">Price : 20$</p>
-                            <p style="color:#fff;font-weight: bold;
-                                    ">Items : 1</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="prod-box">
-                    <img src="<?php echo e(asset('assets/images/Huawei-Nova-7i_1.jpg')); ?>" alt="Huawei Nova 7i">
-                    <div class="prod-trans">
-                        <div class="prod-feature">
-                            <p>Huawei Nova 7i</p>
-                            <p style="color:#fff;font-weight: bold;
-                                        ">Price : 700$</p>
-                            <p style="color:#fff;font-weight: bold;
-                                    ">Items : 1</p>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
     </div>

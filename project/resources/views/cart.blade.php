@@ -54,17 +54,15 @@
         <div class="prods">
             <span id="shopping-cart">SHOPPING CART</span>
             <div class="prod-box">
-                <img src="{{asset('assets/images/lenovo-ideapad.jpg')}}">
-                <p>lenovo-ideapad</p>
-                <p style="color:gray;">800 $</p>
+                @foreach($userCart as $cart)
+
+                <img src="{{asset('uploads/products/'.$cart->image)}}">
+
+                <p>{{$cart->product_name}}</p>
+                <p style="color:gray;">{{$cart->price}} $</p>
                 <button class="delete">X</button>
             </div>
-            <div class="prod-box">
-                <img src="{{asset('assets/images/samsung-galaxy-note-10.jpg')}}">
-                <p>samsung galaxy note 10</p>
-                <p style="color:gray;">300 $</p>
-                <button class="delete">X</button>
-            </div>
+            @endforeach
             <div class="total-price">
                 <p style="color:gray;">Subtotal</p>
                 <p>1100 $</p>

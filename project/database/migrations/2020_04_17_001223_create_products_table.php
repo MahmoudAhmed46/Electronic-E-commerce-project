@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('cat_id');
             $table->tinyInteger('status')->default(1);
             $table->string('image')->nullable();
-            $table->foreign('cat_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('cat_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('quantity');
             $table->timestamps();
         });

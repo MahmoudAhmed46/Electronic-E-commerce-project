@@ -7,6 +7,7 @@ use App\Category;
 use App\Product;
 use App\Cart;
 use Session;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -45,12 +46,23 @@ class HomeController extends Controller
         return view('home')->with('All_Products',$All_Products);
     }
 
+
     public function getAddToCart($id){
         $product=Product::find($id);
         $oldCart=Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
         $cart->add($product);
         Session::put('cart',$cart);
+        $session_id=Session::get('session_id');
+        if(empty($session_id)){
+            $session_id=str_random(40);
+            Session::put('session_id',$session_id);
+        }
+        DB::table('carts')->insert([
+            'product_id'=>$id,'product_name'=>$product->name,'product_code'=>$product->code,'price'=>$product->price,
+            'quantity'=>1,'user_email'=>Auth::user()->email,'session_id'=>$session_id,'image'=>$product->image
+        ]);
+        DB::table('products')->where('id',$id)->update(['quantity'=>$product->quantity-1]);
         //dd(session()->get('cart'));
         return redirect()->route('home');
     }
@@ -64,6 +76,11 @@ class HomeController extends Controller
         return view('shopping-cart')->with('cart',$cart);
     }
 
+    public function history(){
+        //$carts=DB::table('carts')->get();
+        $carts=Cart::all();
+        return view('history')->with('carts',$carts);
+    }
 
 
 }
