@@ -33,7 +33,7 @@
             <!--User Menu-->
             <div id="all-cart">
                 <span id="cart-text">Cart</span>
-                <a href="{{url('/cart')}}"><img src="{{asset('assets/images/cart-logo.png')}}"></a>
+                <a href="{{url('/cart')}}"><img src="{{asset($user['image'])}}"></a>
                 <span id="num">0</span>
             </div>
             <!--Navigation-->
@@ -60,13 +60,13 @@
             <form>
                 <fieldset>
                     <p>Email:</p>
-                    <input type="text" value="example@email.com" readonly>
+                    <input type="text" value="{{$user['email']}}" readonly>
                     <p>Country:</p>
-                    <input type="text" value="country-city" readonly>
+                    <input type="text" value="{{$user['state']}}" readonly>
                     <p>Mobile:</p>
-                    <input type="text" value="123456789" readonly>
+                    <input type="text" value="{{$user['mobile']}}" readonly>
                     <p>Pincode:</p>
-                    <input type="text" value="12345678989876786" readonly>
+                    <input type="text" value="{{$user['pincode']}}" readonly>
                 </fieldset>
            </form>
         </div>
