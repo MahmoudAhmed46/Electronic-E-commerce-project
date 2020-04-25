@@ -13,7 +13,7 @@
     <div id="header">
         <div id="subheader">
             <!--<div class="upper-header">-->
-            <p>World fastest online shopping place</p>
+            <p>World fastest electronic online shopping place</p>
 
             <!-- </div>-->
         </div>
@@ -38,7 +38,7 @@
             <!--Navigation-->
             <div id="navigation">
                 <nav id="mainav">
-                    <a href="<?php echo e(asset('/user')); ?>">Home</a>
+                    <a href="<?php echo e(url('/')); ?>">Home</a>
                     <a href="#">New arrivals</a>
                     <a href="#offers">Deals</a>
                     <a href="#category">Electronics</a>
