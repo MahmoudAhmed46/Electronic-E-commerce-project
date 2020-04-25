@@ -293,7 +293,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="F:/laravel/blog3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -341,12 +341,12 @@
       <workItem from="1587322037900" duration="14034000" />
       <workItem from="1587374143353" duration="1055000" />
       <workItem from="1587375572255" duration="608000" />
-      <workItem from="1587376684020" duration="13863000" />
+      <workItem from="1587376684020" duration="14457000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58125000" />
+    <option name="totallyTimeSpent" value="58719000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
