@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/admin/dashboard', 'AdminController@dashboard');
+Route::get('/admin/dashboard', 'AdminController@dashboard')->name('Admin-Dashboard');
 Route::match(['get','post'],'/admin/add-category','CategoriesController@addCategory');
 Route::match(['get','post'],'/admin/edit-category/{id}','CategoriesController@editCategory');
 Route::get('/admin/view-category', 'CategoriesController@viewCategory');
@@ -24,9 +24,9 @@ Route::get('/admin/delete-product/{id}','ProductController@deleteProduct');
 Route::match(['get','post'],'/admin/add-images/{id}', 'ProductController@addImage');
 Route::get('/admin/delete-image/{id}', 'ProductController@deleteImage');
 
-Route::get('/', function () {
-    return view('home');
-});
+/*
+ * All user Routes
+ * */
 Route::get('/history', function () {
     return view('history');
 });
@@ -36,23 +36,14 @@ Route::get('/cart', function () {
 Route::get('/p', function () {
     return view('profile');
 });
-
-Route::get('/labtopscategory',function () {
-    return view('products-in-labtops-category');
-});
-Route::get('/mobilescategory',function () {
-    return view('products-in-mobiles-category');
-});
-Route::get('/lcdscreenscategory',function () {
-    return view('products-in-lcdscreen-category');
-});
-Route::get('/homenessitiescategory',function () {
-    return view('products-in-homenessities-category');
-});
-Route::get('/accessoriescategory',function () {
-    return view('products-in-accessories-category');
+Route::get('/shopping', function () {
+    return view('shopping-cart');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/','HomeController@index')->name('home');
+Route::get('/category/{id}', 'HomeController@show')->name('show');
+Route::get('/add-to-cart/{id}','HomeController@getAddToCart')->name('product.addToCart');
+Route::get('/shopping-cart','HomeController@getCart')->name('product.shoppingCart');
+

@@ -106,8 +106,9 @@ trait AuthenticatesUsers
 
         $this->clearLoginAttempts($request);
 
-        return $this->authenticated($request, $this->guard()->user())
-                ?: redirect()->intended($this->redirectPath());
+//        return $this->authenticated($request, $this->guard()->user())
+//                ?: redirect()->intended($this->redirectPath());
+        return Auth::user()->is_Admin?redirect(route('Admin-Dashboard')):redirect(route('home'));
     }
 
     /**

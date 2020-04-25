@@ -1,20 +1,55 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="urf-8">
     <title>Electronic Shop</title>
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/user/style.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>Electronic Shop</title>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
-<div id="container">
+<div id="content">
     <div id="header">
         <div id="subheader">
             <!--<div class="upper-header">-->
             <p>World fastest online shopping place</p>
             <!-- </div>-->
+            @guest
+                <a href="{{ route('login') }}" style="margin-right:25px;">{{ __('Login') }}</a>
+                @if (Route::has('register'))
+                        <a  href="{{ route('register') }}">{{ __('Register') }}</a>
+                @endif
+            @else
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" style="color: black;">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+                @endguest
         </div>
         <div id="main-header">
             <!--Logo-->
@@ -31,8 +66,8 @@
             <!--User Menu-->
             <div id="all-cart">
                 <span id="cart-text">Cart</span>
-                <a href="{{url('/cart')}}"><img src="{{asset('assets/images/cart-logo.png')}}"></a>
-                <span id="num">0</span>
+                <a href="{{route('product.shoppingCart')}}"><img src="{{asset('assets/images/cart-logo.png')}}"></a>
+                <span class="badge">{{Session::has('cart')?Session::get('cart')->totalQty:'0'}}</span>
             </div>
             <!--Navigation-->
             <div id="navigation">
@@ -69,37 +104,17 @@
                 <i class="fa fa-align-justify" style="font-size:36px;"></i>
                 <span>Category</span>
             </div>
-
-            <a href="#">
+            @foreach($all_data['categories'] as $category)
+                @if($category->pieces > 0)
+            <a href="{{route('show',$category->id)}}">
                 <div class="catbox">
-                    <img src="{{asset('assets/images/Labtop.jpg')}}" alt="Labtops">
-                    <span>Labtops</span>
+                    <img src="{{asset('/uploads/products/'. $category->image)}}" alt="{{$category->name}}">
+                    <span>{{$category->name}}</span>
+                    <p style="position: absolute;top:203px;left:60px;width: 100px;background-color:black;color: white;text-align: center;">Quantity:{{$category->pieces}}</p>
                 </div>
             </a>
-            <a href="#">
-                <div class="catbox">
-                    <img src="{{asset('assets/images/mobile.jpg')}}" alt="Mobils">
-                    <span>Mobils</span>
-                </div>
-            </a>
-            <a href="#">
-                <div class="catbox">
-                    <img src="{{asset('assets/images/LCD screen.jpg')}}" alt="LCD screen">
-                    <span>LCD screen</span>
-                </div>
-            </a>
-            <a href="#">
-                <div class="catbox">
-                    <img src="{{asset('assets/images/washing.jpg')}}" alt="Home Necessities">
-                    <span>Home Necessities</span>
-                </div>
-            </a>
-            <a href="#">
-                <div class="catbox">
-                    <img src="{{asset('assets/images/Accessories.jpg')}}" alt="Accessories">
-                    <span>Accessories</span>
-                </div>
-            </a>
+                @endif
+                @endforeach
         </div>
         <!--Products-->
         <div id="products">
@@ -108,116 +123,20 @@
                 <span>Products</span>
             </div>
             <div class="prod-container">
+                @foreach($all_data['products'] as $prod)
                 <div class="prod-box">
-                    <img src="{{asset('assets/images/samsung-galaxy-note-10.jpg')}}" alt="samsung galaxy note 10">
+                    <img src="{{asset('/uploads/products/' .$prod->image)}}" alt={{$prod->name}}>
                     <div class="prod-trans">
                         <div class="prod-feature">
-                            <p>samsung galaxy note 10</p>
+                            <p>{{$prod->name}}</p>
                             <p style="color:#fff;font-weight: bold;
-                                        ">Price : 300$</p>
-                            <input type="button" value="Add to cart">
+                                        ">Price : {{$prod->price}}$</p>
+                            <a class="btn btn-primary" href="{{route('product.addToCart',$prod->id)}}">Add to cart</a>
                         </div>
                     </div>
                 </div>
-                <div class="prod-box">
-                    <img src="{{asset('assets/images/lenovo-ideapad.jpg')}}" alt="lenovo ideapad">
-                    <div class="prod-trans">
-                        <div class="prod-feature">
-                            <p>lenovo ideapad</p>
-                            <p style="color:#fff;font-weight: bold;
-                                        ">Price : 800$</p>
-                            <input type="button" value="Add to cart">
-                        </div>
-                    </div>
-                </div>
-                <div class="prod-box">
-                    <img src="{{asset('assets/images/dell-inspiron.jpg')}}" alt="dell inspiron">
-                    <div class="prod-trans">
-                        <div class="prod-feature">
-                            <p>Dell inspiron</p>
-                            <p style="color:#fff;font-weight: bold;
-                                        ">Price : 1050$</p>
-                            <input type="button" value="Add to cart">
-                        </div>
-                    </div>
-                </div>
-                <div class="prod-box">
-                    <img src="{{asset('assets/images/smart-washing.jpg')}}" alt="samsung smart washing machine">
-                    <div class="prod-trans">
-                        <div class="prod-feature">
-                            <p>samsung smart washing machine</p>
-                            <p style="color:#fff;font-weight: bold;
-                                        ">Price : 850$</p>
-                            <input type="button" value="Add to cart">
-                        </div>
-                    </div>
-                </div>
-                <div class="prod-box">
-                    <img src="{{asset('assets/images/toshiba-vacuum-cleaner.jpg')}}" alt="toshiba vacuum cleaner">
-                    <div class="prod-trans">
-                        <div class="prod-feature">
-                            <p>toshiba vacuum cleaner</p>
-                            <p style="color:#fff;font-weight: bold;
-                                        ">Price : 100$</p>
-                            <input type="button" value="Add to cart">
-                        </div>
-                    </div>
-                </div>
-                <div class="prod-box">
-                    <img src="{{asset('assets/images/samsung-lcd-screen.jpg')}}" alt="samsung lcd screen">
-                    <div class="prod-trans">
-                        <div class="prod-feature">
-                            <p>Samsung LCD Screen</p>
-                            <p style="color:#fff;font-weight: bold;
-                                        ">Price : 300$</p>
-                            <input type="button" value="Add to cart">
-                        </div>
-                    </div>
-                </div>
-                <div class="prod-box">
-                    <img src="{{asset('assets/images/lenovo-labtop-charger.jpg')}}" alt="lenovo labtop charger">
-                    <div class="prod-trans">
-                        <div class="prod-feature">
-                            <p>Lenovo Labtop Charger</p>
-                            <p style="color:#fff;font-weight: bold;
-                                        ">Price : 100$</p>
-                            <input type="button" value="Add to cart">
-                        </div>
-                    </div>
-                </div>
-                <div class="prod-box">
-                    <img src="{{asset('assets/images/Huawei-earphones.jpg')}}" alt="Huawei-earphones">
-                    <div class="prod-trans">
-                        <div class="prod-feature">
-                            <p>Huawei Earphones</p>
-                            <p style="color:#fff;font-weight: bold;
-                                        ">Price : 20$</p>
-                            <input type="button" value="Add to cart">
-                        </div>
-                    </div>
-                </div>
-                <div class="prod-box">
-                    <img src="{{asset('assets/images/Huawei-Nova-7i_1.jpg')}}" alt="Huawei Nova 7i">
-                    <div class="prod-trans">
-                        <div class="prod-feature">
-                            <p>Huawei Nova 7i</p>
-                            <p style="color:#fff;font-weight: bold;
-                                        ">Price : 700$</p>
-                            <input type="button" value="Add to cart">
-                        </div>
-                    </div>
-                </div>
-                <div class="prod-box">
-                    <img src="{{asset('assets/images/apple-macbook.jpg')}}" alt="apple macbook pro">
-                    <div class="prod-trans">
-                        <div class="prod-feature">
-                            <p>Apple MacBook Pro</p>
-                            <p style="color:#fff;font-weight: bold;
-                                        ">Price : 1500$</p>
-                            <input type="button" value="Add to cart">
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+                    {{$all_data['products']->links()}}
             </div>
         </div>
         <!-- offers  -->
@@ -273,8 +192,6 @@
         smartBackSPace: true,
         loop: true
     });
-
 </script>
 </body>
-
 </html>
