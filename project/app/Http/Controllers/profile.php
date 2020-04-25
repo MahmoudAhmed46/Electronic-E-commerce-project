@@ -9,7 +9,6 @@ class profile extends Controller
 {
     public function fun()
     {
-       $user= Auth::check();
-       return view('profile')->with(compact('$user'));
+       return view('profile');
     }
 }

@@ -6,6 +6,18 @@
     <title>Electronic Shop</title>
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/user/profile_css.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>Electronic Shop</title>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -14,14 +26,36 @@
         <div id="subheader">
             <!--<div class="upper-header">-->
             <p>World fastest online shopping place</p>
-            <a href="#">Guest</a> <a href="#">Consume</a>
-            <a href="#">Donwload App</a> <a href="#">Help</a>
             <!-- </div>-->
+            @guest
+                <a href="{{ route('login') }}" style="margin-right:25px;">{{ __('Login') }}</a>
+                @if (Route::has('register'))
+                    <a  href="{{ route('register') }}">{{ __('Register') }}</a>
+                @endif
+            @else
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" style="color: black;">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+            @endguest
         </div>
         <div id="main-header">
             <!--Logo-->
             <div id="logo">
-                <span id="fPart">Electronic</span><span id="sPart">Shop</span>
+                <span id="fPart"><a href="home.html">Electronic</a></span><span id="sPart"><a href="home.html">Shop</a></span>
             </div>
             <!--Search-->
             <div id="search">
@@ -33,13 +67,13 @@
             <!--User Menu-->
             <div id="all-cart">
                 <span id="cart-text">Cart</span>
-                <a href="{{url('/cart')}}"><img src="{{asset($user['image'])}}"></a>
-                <span id="num">0</span>
+                <a href="{{route('product.shoppingCart')}}"><img src="{{asset('assets/images/cart-logo.png')}}"></a>
+                <span class="badge">{{Session::has('cart')?Session::get('cart')->totalQty:'0'}}</span>
             </div>
             <!--Navigation-->
             <div id="navigation">
                 <nav id="mainav">
-                    <a href="{{asset('/user')}}">Home</a>
+                    <a href="{{url('/')}}">Home</a>
                     <a href="#">New arrivals</a>
                     <a href="#offers">Deals</a>
                     <a href="#category">Electronics</a>
@@ -54,19 +88,19 @@
     <div id="boody">
         <div  class="pic">
             <img src="{{asset('assets/images/profile_picture.png')}}">
-            <p>Full Name</p>
+            <p>{{Auth::user()->name}}</p>
         </div>
         <div class="info">
             <form>
                 <fieldset>
                     <p>Email:</p>
-                    <input type="text" value="{{$user['email']}}" readonly>
+                    <input type="text" value="{{Auth::user()->email}}" readonly>
                     <p>Country:</p>
-                    <input type="text" value="{{$user['state']}}" readonly>
+                    <input type="text" value="{{Auth::user()->state}}" readonly>
                     <p>Mobile:</p>
-                    <input type="text" value="{{$user['mobile']}}" readonly>
+                    <input type="text" value="{{Auth::user()->mobile}}" readonly>
                     <p>Pincode:</p>
-                    <input type="text" value="{{$user['pincode']}}" readonly>
+                    <input type="text" value="{{Auth::user()->pincode}}" readonly>
                 </fieldset>
            </form>
         </div>
